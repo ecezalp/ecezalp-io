@@ -1,26 +1,19 @@
 import React from 'react';
 import hljs from 'highlight.js';
 
-import BlogEntry from "./blogEntry";
-import blogEntries from "../resources/blogEntries/blogEntries";
-
-// Hishida Shunsō
-import onikscim from "../resources/onikscim.jpg";
+import Main from './components/main';
+import Navbar from './components/nav/navbar';
 
 export default class App extends React.Component {
 
   componentWillMount() {
-   hljs.initHighlightingOnLoad();
+    hljs.initHighlightingOnLoad();
   }
 
   render() {
-  return <div className="blog-container">
-    <div className="blog-inner-container">
-      {blogEntries.map((entry, index) => <BlogEntry key={index} entry={entry}/>)}
+    return <div className="blog-container">
+      <Navbar/>
+      <Main/>
     </div>
-    <div className="oniks-container">
-      <img src={onikscim}/>
-    </div>
-  </div>
   }
 }
