@@ -1,0 +1,36 @@
+.blog-container {
+  background-color: #F9F5EB;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.blog-inner-container {
+  background-color: #FAF8F1;
+  grid-column: 2 / 5;
+  padding: 3em;
+  font-size: 1.1em;
+  letter-spacing: .01em;
+  line-height: 1.60em;
+  color: #010f5b;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  font-family: Lato;
+  text-align: justify;
+}
+
+.oniks-container {
+  grid-column: 5 / 6;
+  //position: fixed;
+}
+
+.oniks-container img {
+  max-width: 100%;
+}
+
+p, pre {margin: 1em 0};
+
+h1 {margin-bottom: 1.5em};
+
+body {
+  margin: 0;
+}

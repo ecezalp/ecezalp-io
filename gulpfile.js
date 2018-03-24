@@ -117,7 +117,21 @@ gulp.task('build', function () {
     .pipe(gulp.dest(BUILD_PATH))
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', ['watchStyle', 'watchCode']);
+
+gulp.task('watchStyle', function () {
+  return gulp.src(GLOBS.scss)
+    .pipe(plumber(function () {
+      console.error(arguments)
+    }))
+    .pipe(webpackStream(_.merge({}, WEBPACK_STYLE_CONFIG, {
+      watch: true,
+      devtool: 'inline-source-map',
+    })))
+    .pipe(gulp.dest(BUILD_PATH))
+});
+
+gulp.task('watchCode', function () {
   return gulp.src(GLOBS.js_jsx)
     .pipe(plumber(function () {
       console.error(arguments)
