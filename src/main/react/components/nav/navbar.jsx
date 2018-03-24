@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default function NavBar() {
 
@@ -10,7 +11,9 @@ export default function NavBar() {
     <div className="options-container">
       {options.map((option) =>
         <div className="option" key={`option-${option}`}>
-          <div className="nav-text">{option}</div>
+          <Link to={`/${option}`}>
+            <div className="nav-text">{option}</div>
+          </Link>
         </div>)}
     </div>;
 
