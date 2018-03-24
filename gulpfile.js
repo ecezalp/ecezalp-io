@@ -8,7 +8,7 @@ const BUILD_PATH = path.join(__dirname, './dist');
 const GLOBS = {
   assets: ['src/main/resources/static/images/*'],
   js_jsx: ['src/main/react/**/*.+(js|jsx)'],
-  scss: ['src/main/styles/**.*.+(scss)'],
+  scss: ['src/main/styles/**/*.+(scss|css)'],
   spec: ['src/test/react/**/*Spec.+(js|jsx)'],
   server: ['src/main/node/**/*.+(js|jsx)'],
 };
@@ -63,6 +63,11 @@ const WEBPACK_BUILD_CONFIG = _.merge({}, WBBPACK_SRC_CONFIG, {
   output: {filename: 'bundle.js'}
 });
 
+const WEBPACK_STYLE_CONFIG = _.merge({}, WBBPACK_SRC_CONFIG, {
+  entry: './src/main/styles/main.scss',
+  output: {filename: 'bundle.css'}
+});
+
 const WEBPACK_TEST_CONFIG = _.merge({}, WBBPACK_SRC_CONFIG, {
   output: {filename: 'spec.js'},
   externals: {
@@ -108,6 +113,7 @@ gulp.task('test', function () {
 gulp.task('build', function () {
   return gulp.src(GLOBS.js_jsx)
     .pipe(webpackStream(WEBPACK_BUILD_CONFIG))
+    .pipe(webpackStream(WEBPACK_STYLE_CONFIG))
     .pipe(gulp.dest(BUILD_PATH))
 });
 

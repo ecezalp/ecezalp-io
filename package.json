@@ -1,9 +1,11 @@
 {
-  "name": "won-jun-hong",
+  "name": "ece-ozalp",
   "version": "1.0.0",
-  "description": "life of won jun hong",
-  "main": "./gulpfile.js",
+  "description": "ece ozalp",
+  "main": "./server.js",
   "dependencies": {
+    "react-highlight": "^0.11.1",
+    "react-markdown": "^3.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -31,9 +33,7 @@
     "webpack": "^3.8.1",
     "webpack-stream": "^4.0.0"
   },
-  "repository": {
-
-  },
-  "author": "WJ Hong",
+  "repository": {},
+  "author": "Ece Ozalp",
   "license": "ISC"
 }
