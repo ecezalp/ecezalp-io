@@ -3,4 +3,8 @@ import reduceComprehensive from "./reduceComprehensive";
 
 const blogEntries = [reduceComprehensive, syntaxHighlight];
 
-export default blogEntries;
+const processedBlogEntries = blogEntries.map((entry, index) =>
+  Object.assign({}, {text: entry, id: (index + 1).toString(), title: entry.match(/^.*$/m)[0]})
+);
+
+export default processedBlogEntries;
