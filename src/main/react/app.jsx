@@ -4,34 +4,29 @@ import hljs from 'highlight.js';
 import Navbar from './components/nav/navbar';
 import Main from './components/main';
 
-export default class App extends React.Component {
+export default function App() {
 
-  constructor(props) {
-    super(props);
-  }
+  const getKeyToRerender = () => {
+    return Math.floor((Math.random() * 100) + 1);
+  };
 
-  entry({match}) {
-    setTimeout(() => {
-      hljs.initHighlightingOnLoad()
-    }, 500);
-    return <Main match={match}/>;
-  }
+  const entry = ({match}) => {
+    setTimeout(hljs.initHighlightingOnLoad(), 400);
+    return <Main key={getKeyToRerender()} match={match}/>;
+  };
 
-  render() {
-    return <Router>
-      <div className="blog-container">
-        <Navbar/>
+  return <Router>
+    <div className="blog-container">
+      <Navbar/>
 
-        <Route exact path="/" component={this.entry}/>
-        <Route path="/author" component={this.entry}/>
-        <Route path="/blog" component={this.entry}/>
+      <Route exact path="/" component={entry}/>
+      <Route path="/author" component={entry}/>
+      <Route path="/blog" component={entry}/>
 
-        <Switch>
-          <Route exact path="/archive" component={this.entry}/>
-          <Route path="/archive/:id" component={this.entry}/>
-        </Switch>
-
-      </div>
-    </Router>
-  }
+      <Switch>
+        <Route exact path="/archive" component={entry}/>
+        <Route path="/archive/:id" component={entry}/>
+      </Switch>
+    </div>
+  </Router>
 }

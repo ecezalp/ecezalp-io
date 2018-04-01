@@ -1,20 +1,21 @@
 import React from "react";
 import aboutUs from "../../resources/about/aboutUs.jpg";
 
-export default function Author(props) {
+export default function Author() {
 
   const firstLine = ["TDD", "Agile", "Pair Programming", "Git"];
   const secondLine = ["JavaScript", "React.js", "Redux", "Webpack", "Gulp",];
-  const thirdLine = [ "Jasmine", "Enzyme", "BDD", "Phantom.js", "CSS"];
+  const thirdLine = ["Jasmine", "Enzyme", "BDD", "Phantom.js", "CSS"];
   const fourthLine = ["Java", "Spring", "JUnit", "JBPM", "SQL", "Fluentlenium"];
 
   const lines = [firstLine, secondLine, thirdLine, fourthLine];
 
   const getLine = (line, index) => {
-    return <div className={`line line-${index}`}>{line.map(item => <div className="line-item">
-      <div className="heart"/>
-      {item}
-    </div>)}
+    return <div className={`line`} key={`line-${index}`}>
+      {line.map((item, i) => <div key={`line-${index}-item-${i}`} className="line-item">
+        <div className="heart"/>
+        {item}
+      </div>)}
     </div>
   };
 

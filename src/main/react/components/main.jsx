@@ -44,9 +44,9 @@ export default function Main({match}) {
   };
 
   const getRightBlock = () => {
-    return (componentType === "archive/:id" || componentType === "blog") ?
-      <div className="column-gradient"/> :
-      <div className="column-no-gradient"/>
+    let className = (componentType === "archive/:id" || componentType === "blog") ?
+      "column-gradient" : "column-no-gradient";
+    return <div className={className}/>;
   };
 
   const innerBlock = <div className="blog-inner-container">

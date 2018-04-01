@@ -1,10 +1,16 @@
-import syntaxHighlight from './how-I-got-syntax-highlighting-for-my-blog';
-import reduceComprehensive from "./reduceComprehensive";
+import syntaxHighlight from './javascript/entries/syntaxHighlighting';
+import reduceComprehensive from "./javascript/entries/reduceComprehensive";
+import blockOnMac from "./javascript/entries/blockOnMac";
+import noArgsConstructor from "./javascript/entries/noArgsConstructor";
 
-const blogEntries = [reduceComprehensive, syntaxHighlight];
+const blogEntries = [blockOnMac, noArgsConstructor, reduceComprehensive, syntaxHighlight];
 
 const processedBlogEntries = blogEntries.map((entry, index) =>
-  Object.assign({}, {text: entry, id: (index + 1).toString(), title: entry.match(/^.*$/m)[0]})
+  Object.assign({}, {
+    text: entry,
+    id: (index + 1).toString(),
+    title: entry.match(/^.*$/m)[0].substring(2),
+  })
 );
 
 export default processedBlogEntries;
