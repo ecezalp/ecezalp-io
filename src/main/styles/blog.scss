@@ -1,3 +1,6 @@
+$font_color: #010f5b;
+$navbar_height: 40px;
+
 .blog-container {
   background-color: #F9F5EB;
   max-width: 100%;
@@ -10,7 +13,7 @@
 #navbar {
   z-index: 5;
   display: flex;
-  height: 40px;
+  height: $navbar_height;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1), 0 5px 12px rgba(0, 0, 0, 0.1);
@@ -18,7 +21,7 @@
   width: 100%;
   font-family: "Space Mono";
   background-color: #efcfcb;
-  color: #010f5b;
+  color: $font_color;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -42,7 +45,7 @@
 
 .nav-text {
   cursor: pointer;
-  color: #010f5b;
+  color: $font_color;
 }
 
 .main-container {
@@ -50,25 +53,89 @@
 }
 
 .blog-inner-container {
+  padding-top: $navbar_height;
   background-color: #FAF8F1;
   width: 60%;
-  padding: 3em;
   font-size: 1.1em;
   letter-spacing: .01em;
   line-height: 1.60em;
-  color: #010f5b;
+  color: $font_color;
   -webkit-font-smoothing: antialiased;
   font-weight: 500;
   font-family: Lato;
   text-align: justify;
 }
 
-//.holy-grail-right {
-//  grid-column: 1 / 2;
-//
-//}
+.blog-entry-container, .solo-entry-container {
+  padding: 1em 3em;
+}
 
-.holy-grail-right {
+.author-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.author-pic {
+  height: 30vh;
+  margin-top: 5vh;
+  border-radius: 50%;
+  border: 5px solid #010f5b;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+.title-name {
+  font-size: 2em;
+  font-family: "Salsa";
+  padding-bottom: 4vh;
+}
+
+.title-title {
+  font-size: 2em;
+  font-family: "Pompiere";
+}
+
+.heart:before {
+  content: "\2665";
+  color: #e88b7a;
+  padding: 0 10px;
+}
+
+.lines-container {
+  width: 80%;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2em 0;
+}
+
+.line-item {
+  color: $font_color;
+  font-family: "Space Mono";
+  display: flex;
+  padding: 0 0.5em;
+}
+
+.admin {
+  padding-top: 5%;
+  color: #e88b7a;
+}
+
+.column-gradient {
   min-height: 100vh;
   width: 20%;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d6c5a6+0,f9e2b9+16,f8f5ec+30,f7c1b9+44,b2d4f7+64,f9e2b9+78,e27aae+100 */
@@ -79,6 +146,12 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6c5a6', endColorstr='#e27aae',GradientType=0 ); /* IE6-9 */
 }
 
+.column-no-gradient {
+  background-color: #f5dfb5;
+  min-height: 100vh;
+  width: 20%;
+}
+
 .holy-grail-left {
   width: 20%;
   display: flex;
@@ -86,7 +159,7 @@
 }
 
 .onikscim {
-  padding-top: 40px;
+  padding-top: $navbar_height;
   background-color: #C9899B;
   position: fixed;
   width: 20%;
@@ -109,6 +182,10 @@ code:hover {
 
 p, pre {
   margin: 1em 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 pre {

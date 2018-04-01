@@ -3,20 +3,20 @@ import blogEntries from "../../resources/blogEntries/blogEntries";
 import onikscim from '../../resources/onikscim.jpg';
 import BlogEntry from './blogEntry';
 import {Link} from "react-router-dom";
-import hljs from "highlight.js";
+import Author from "./author";
 
 export default function Main({match}) {
+
+  const componentType = match.path.substring(1);
 
   const archive = <div className="archive-container">
     {blogEntries.map((entry) =>
       <div className="index-entry-link" key={`link-${entry.id}`}>
-        <Link to={`/blog/${entry.id}`}>
+        <Link to={`/archive/${entry.id}`}>
           {entry.title}
         </Link>
       </div>)}
   </div>;
-
-  const author = <div className="author-container">this is me </div>;
 
   const blog = <div className="blog-entry-container">
     {blogEntries.map((entry) =>
@@ -30,26 +30,27 @@ export default function Main({match}) {
     </div>;
   };
 
-  const entry = getEntry();
-
-  const getComponent = (component) => {
-
-    switch (component) {
+  const getComponent = () => {
+    switch (componentType) {
+      case "archive/:id":
+        return getEntry();
       case "archive":
         return archive;
       case "author":
-        return author;
+        return <Author/>;
       case "blog":
         return blog;
-      case "blog/:id":
-        return entry;
     }
   };
 
-  const rightBlock = <div className="holy-grail-right"/>;
+  const getRightBlock = () => {
+    return (componentType === "archive/:id" || componentType === "blog") ?
+      <div className="column-gradient"/> :
+      <div className="column-no-gradient"/>
+  };
 
   const innerBlock = <div className="blog-inner-container">
-    {getComponent(match.path.substring(1))}
+    {getComponent()}
   </div>;
 
   const leftBlock = <div className="holy-grail-left">
@@ -57,7 +58,7 @@ export default function Main({match}) {
   </div>;
 
   return <div className="main-container">
-    {rightBlock}
+    {getRightBlock()}
     {innerBlock}
     {leftBlock}
   </div>;

@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 
 export default function NavBar() {
 
-  const logo = <div className="logo-container">ecezalp.io</div>;
-
   const options = ['archive', 'blog', 'author'];
 
   const getOptions = (options) =>
@@ -16,6 +14,8 @@ export default function NavBar() {
           </Link>
         </div>)}
     </div>;
+
+  const logo = <div className="logo-container">ecezalp.io</div>;
 
   return <div id="navbar">
     {logo}
