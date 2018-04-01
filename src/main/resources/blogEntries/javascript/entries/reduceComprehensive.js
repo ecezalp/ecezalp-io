@@ -1,4 +1,4 @@
-const reduceComprehensive = '# js reduce with different kinds of seeds\n' +
+const reduceComprehensive = '# a comprehensive guide on `.reduce()`\n' +
   '\n' +
   'Today I want to briefly talk about the **reduce** function in JavaScript, and how it can be used in creative ways. \n' +
   '\n' +

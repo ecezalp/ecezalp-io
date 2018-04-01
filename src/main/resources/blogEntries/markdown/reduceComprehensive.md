@@ -1,4 +1,4 @@
-# js reduce with different kinds of seeds
+# a comprehensive guide on ```.reduce()```
 
 Today I want to briefly talk about the **reduce** function in JavaScript, and how it can be used in creative ways. 
 

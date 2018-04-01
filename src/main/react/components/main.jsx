@@ -9,12 +9,20 @@ export default function Main({match}) {
 
   const componentType = match.path.substring(1);
 
+  const heart = <div className="heart"/>;
+
   const archive = <div className="archive-container">
+    {heart}
+    {heart}
+    {heart}
+    {heart}
+    {heart}
     {blogEntries.map((entry) =>
       <div className="index-entry-link" key={`link-${entry.id}`}>
         <Link to={`/archive/${entry.id}`}>
-          {entry.title}
+          <BlogEntry key={`entry-link-${entry.id}`} entry={entry.title}/>
         </Link>
+        {heart}
       </div>)}
   </div>;
 
@@ -42,6 +50,8 @@ export default function Main({match}) {
         return blog;
     }
   };
+
+
 
   const getRightBlock = () => {
     let className = (componentType === "archive/:id" || componentType === "blog") ?

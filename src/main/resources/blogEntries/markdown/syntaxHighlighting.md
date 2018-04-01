@@ -1,4 +1,4 @@
-# how I got syntax highlighting for my blog
+# syntax highlighting for Markdown in React
 When I first started conceptualizing this blog, I had a few things in mind. From here on, I will refer to them as my blog principles: 
 
 1. I will use React.js

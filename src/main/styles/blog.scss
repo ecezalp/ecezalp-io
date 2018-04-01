@@ -57,7 +57,12 @@ $navbar_height: 40px;
   flex-direction: column;
   width: 100%;
   align-items: center;
-  padding-top: 25vh;
+}
+
+.index-entry-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .blog-inner-container {
@@ -170,6 +175,10 @@ $navbar_height: 40px;
   background-color: #C9899B;
   position: fixed;
   width: 20%;
+}
+
+.archive-container p {
+  margin: 0.2em 0 !important;
 }
 
 code {
