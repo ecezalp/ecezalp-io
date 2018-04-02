@@ -1,4 +1,4 @@
-# a comprehensive guide on ```.reduce()```
+# a comprehensive guide on `.reduce()`
 
 Today I want to briefly talk about the **reduce** function in JavaScript, and how it can be used in creative ways. 
 
@@ -13,7 +13,7 @@ In JavaScript, **reduce** is always called on an array, and it processes each el
 
 In addition to the callback's arguments, there is a second argument to the **reduce** function itself, which is the seed. The seed is the starting value of the accumulator. 
 
-## Number seed
+## number seed
 
 The simplest example of **reduce** is as follows:
 
@@ -46,7 +46,7 @@ accumulator + (team.noOfEngineers * team.hoursPerWeek)
 ```
 
 
-## Array seed
+## array seed
 
 I have first discovered the usefulness of **reduce** when I wanted to filter and map an array at the same time. Say I have an array of dirty and mixed produce, and I want to have washed fruits. 
 
@@ -71,22 +71,90 @@ an important point here is to not forget returning the accumulator; simply pushi
 There are many other ways to utilize the reduce function with an array seed. A few potential uses can be flattening arrays:
 
 ```javascript
-[[1], [2, "hello"], [{name: "Ece"}]].reduce((acc, element) => acc.concat(element), []);
+[[1], [2, "hello"], [{name: "Ece"}]].reduce((acc, element) => 
+	acc.concat(element), []);
 // [1, 2, "hello", {name: "Ece"}]
 ```
 
 Instead of concat, we can use the spread operator as well: 
 
 ```javascript
-let people = [{name: "Ece", pets: ["Oniks", "Ceviz"]}, {name: "WonJun", pets: ["Yeon", "Tan", "Altin"]}];
+let people = [
+	{name: "Ece", pets: ["Oniks", "Ceviz"]}, 
+	{name: "WonJun", pets: ["Yeon", "Tan", "Altin"]}
+];
 
 people.reduce((acc, person) => [...acc, ...person.pets], []);
 // ["Oniks", "Ceviz", "Yeon", "Tan", "Altin"];
 ```
 
+## object seed
+
+The object seed is fantastic for accumulating data about an array of nested objects. It is very useful as a building block in algorithm problems. In this example, we can count which name is the most popular within a group of people.
+
+
+```javascript
+let people = [
+	{name: 'Ali', age: 10}, 
+	{name: 'Hans', age: 22}, 
+	{name: 'Xeo', age: 14}, 
+	{name: 'Laura', age: 15}, 
+	{name: 'Ali', age: 12}
+];
+
+let countedNames = people.reduce((acc, person) => { 
+	acc[person.name] = person.name in acc ? 
+    	acc[person.name] + 1 : 
+    	1;
+  	return acc;
+}, {})
+// countedNames = {Ali: 2, Hans: 1, Xeo: 1, Laura: 1}
+```
+
+
 ## function seed
 
+A function seed is great to create a **pipe**, which is a way to run several functions on data in a particular order. The best example I have found on this was on Mozilla documentation, I am copying it here.
 
+```javascript
+// Building-blocks to use for composition
+const double = x => x + x;
+const triple = x => 3 * x;
+const quadruple = x => 4 * x;
+
+// Function composition enabling pipe functionality
+const pipe = (...functions) => input => [...functions].reduce(
+    (acc, fn) => fn(acc),
+    input
+);
+
+// Composed functions for multiplication of specific values
+const multiply6 = pipe(double, triple);
+const multiply9 = pipe(triple, triple);
+const multiply16 = pipe(quadruple, quadruple);
+const multiply24 = pipe(double, triple, quadruple);
+
+// Usage
+multiply6(6); // 36
+multiply9(9); // 81
+multiply16(16); // 256
+multiply24(10); // 240 
+```
+
+Note the part where it says "Function composition enabling pipe functionality". You will see that there are two => signs one after the other, which might seem a bit confusing. What is happening there is called **currying**. I will be attaching the link here once I cover that topic. 
+
+
+## promise seed
+
+TODO
+
+```javascript
+var readFiles = function(files) {
+  return files.reduce(function(p, file) {
+             return p.then(function(){ return readFile(file); });
+         },Q()); // initial
+};
+```
 
 
 

@@ -13,7 +13,7 @@ const reduceComprehensive = '# a comprehensive guide on `.reduce()`\n' +
   '\n' +
   'In addition to the callback\'s arguments, there is a second argument to the **reduce** function itself, which is the seed. The seed is the starting value of the accumulator. \n' +
   '\n' +
-  '## Number seed\n' +
+  '## number seed\n' +
   '\n' +
   'The simplest example of **reduce** is as follows:\n' +
   '\n' +
@@ -38,13 +38,15 @@ const reduceComprehensive = '# a comprehensive guide on `.reduce()`\n' +
   '\t{team: "devOps", noOfEngineers: 3, hoursPerWeek: 40},\n' +
   '];\n' +
   '\n' +
-  'allTeams.reduce((accumulator, team) => accumulator + (team.noOfEngineers * team.hoursPerWeek), 0)\n' +
+  'allTeams.reduce((accumulator, team) => \n' +
+  'accumulator + (team.noOfEngineers * team.hoursPerWeek)\n' +
+  ', 0)\n' +
   '// 425\n' +
   '\n' +
   '```\n' +
   '\n' +
   '\n' +
-  '## Array seed\n' +
+  '## array seed\n' +
   '\n' +
   'I have first discovered the usefulness of **reduce** when I wanted to filter and map an array at the same time. Say I have an array of dirty and mixed produce, and I want to have washed fruits. \n' +
   '\n' +
@@ -69,18 +71,91 @@ const reduceComprehensive = '# a comprehensive guide on `.reduce()`\n' +
   'There are many other ways to utilize the reduce function with an array seed. A few potential uses can be flattening arrays:\n' +
   '\n' +
   '```javascript\n' +
-  '[[1], [2, "hello"], [{name: "Ece"}]].reduce((acc, element) => acc.concat(element), []);\n' +
+  '[[1], [2, "hello"], [{name: "Ece"}]].reduce((acc, element) => \n' +
+  '\tacc.concat(element), []);\n' +
   '// [1, 2, "hello", {name: "Ece"}]\n' +
   '```\n' +
   '\n' +
   'Instead of concat, we can use the spread operator as well: \n' +
   '\n' +
   '```javascript\n' +
-  'let people = [{name: "Ece", pets: ["Oniks", "Ceviz"]}, {name: "WonJun", pets: ["Yeon", "Tan", "Altin"]}];\n' +
+  'let people = [\n' +
+  '\t{name: "Ece", pets: ["Oniks", "Ceviz"]}, \n' +
+  '\t{name: "WonJun", pets: ["Yeon", "Tan", "Altin"]}\n' +
+  '];\n' +
   '\n' +
   'people.reduce((acc, person) => [...acc, ...person.pets], []);\n' +
   '// ["Oniks", "Ceviz", "Yeon", "Tan", "Altin"];\n' +
   '```\n' +
+  '\n' +
+  '## object seed\n' +
+  '\n' +
+  'The object seed is fantastic for accumulating data about an array of nested objects. It is very useful as a building block in algorithm problems. In this example, we can count which name is the most popular within a group of people.\n' +
+  '\n' +
+  '\n' +
+  '```javascript\n' +
+  'let people = [\n' +
+  '\t{name: \'Ali\', age: 10}, \n' +
+  '\t{name: \'Hans\', age: 22}, \n' +
+  '\t{name: \'Xeo\', age: 14}, \n' +
+  '\t{name: \'Laura\', age: 15}, \n' +
+  '\t{name: \'Ali\', age: 12}\n' +
+  '];\n' +
+  '\n' +
+  'let countedNames = people.reduce((acc, person) => { \n' +
+  '\tacc[person.name] = person.name in acc ? \n' +
+  '    \tacc[person.name] + 1 : \n' +
+  '    \t1;\n' +
+  '  \treturn acc;\n' +
+  '}, {})\n' +
+  '// countedNames = {Ali: 2, Hans: 1, Xeo: 1, Laura: 1}\n' +
+  '```\n' +
+  '\n' +
+  '\n' +
+  '## function seed\n' +
+  '\n' +
+  'A function seed is great to create a **pipe**, which is a way to run several functions on data in a particular order. The best example I have found on this was on Mozilla documentation, I am copying it here.\n' +
+  '\n' +
+  '```javascript\n' +
+  '// Building-blocks to use for composition\n' +
+  'const double = x => x + x;\n' +
+  'const triple = x => 3 * x;\n' +
+  'const quadruple = x => 4 * x;\n' +
+  '\n' +
+  '// Function composition enabling pipe functionality\n' +
+  'const pipe = (...functions) => input => [...functions].reduce(\n' +
+  '    (acc, fn) => fn(acc),\n' +
+  '    input\n' +
+  ');\n' +
+  '\n' +
+  '// Composed functions for multiplication of specific values\n' +
+  'const multiply6 = pipe(double, triple);\n' +
+  'const multiply9 = pipe(triple, triple);\n' +
+  'const multiply16 = pipe(quadruple, quadruple);\n' +
+  'const multiply24 = pipe(double, triple, quadruple);\n' +
+  '\n' +
+  '// Usage\n' +
+  'multiply6(6); // 36\n' +
+  'multiply9(9); // 81\n' +
+  'multiply16(16); // 256\n' +
+  'multiply24(10); // 240 \n' +
+  '```\n' +
+  '\n' +
+  'Note the part where it says "Function composition enabling pipe functionality". You will see that there are two => signs one after the other, which might seem a bit confusing. What is happening there is called **currying**. I will be attaching the link here once I cover that topic. \n' +
+  '\n' +
+  '\n' +
+  '## promise seed\n' +
+  '\n' +
+  'TODO\n' +
+  '\n' +
+  '```javascript\n' +
+  'var readFiles = function(files) {\n' +
+  '  return files.reduce(function(p, file) {\n' +
+  '             return p.then(function(){ return readFile(file); });\n' +
+  '         },Q()); // initial\n' +
+  '};\n' +
+  '```\n' +
+  '\n' +
   '\n' +
   '\n' +
   '## using the third *(index)* and fourth *(array)* arguments\n' +
