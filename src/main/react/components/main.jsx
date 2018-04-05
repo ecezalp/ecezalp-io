@@ -1,9 +1,10 @@
 import React from 'react';
 import blogEntries from "../../resources/blogEntries/blogEntries";
-import onikscim from '../../resources/onikscim.jpg';
 import BlogEntry from './blogEntry';
 import {Link} from "react-router-dom";
 import Author from "./author";
+
+
 
 export default function Main({match}) {
 
@@ -12,17 +13,12 @@ export default function Main({match}) {
   const heart = <div className="heart"/>;
 
   const archive = <div className="archive-container">
-    {heart}
-    {heart}
-    {heart}
-    {heart}
-    {heart}
     {blogEntries.map((entry) =>
       <div className="index-entry-link" key={`link-${entry.id}`}>
+        {heart}
         <Link to={`/archive/${entry.id}`}>
           <BlogEntry key={`entry-link-${entry.id}`} entry={entry.title}/>
         </Link>
-        {heart}
       </div>)}
   </div>;
 
@@ -51,25 +47,7 @@ export default function Main({match}) {
     }
   };
 
-
-
-  const getRightBlock = () => {
-    let className = (componentType === "archive/:id" || componentType === "blog") ?
-      "column-gradient" : "column-no-gradient";
-    return <div className={className}/>;
-  };
-
-  const innerBlock = <div className="blog-inner-container">
+  return <div className="blog-inner-container">
     {getComponent()}
-  </div>;
-
-  const leftBlock = <div className="holy-grail-left">
-    <img className="onikscim" src={onikscim}/>
-  </div>;
-
-  return <div className="main-container">
-    {getRightBlock()}
-    {innerBlock}
-    {leftBlock}
   </div>;
 }
