@@ -13,12 +13,11 @@ export default function App() {
   };
 
   const entry = ({match}) => {
-    setTimeout(hljs.initHighlightingOnLoad(), 400);
+    // setTimeout(hljs.initHighlightingOnLoad(), 400);
     return <Main key={getKeyToRerender()} match={match}/>;
   };
 
   const getRightBlock = (withIcons) => {
-
     return withIcons ? <div className="column-gradient">{getIcons()}</div> : <div className="column-gradient"/>;
   };
 
@@ -27,18 +26,16 @@ export default function App() {
       smallIcon: {
         width: 36,
         height: 36,
-        color: "black",
       },
       small: {
         width: 72,
         height: 72,
         padding: 16,
-        color: "black",
       },
     };
 
     const icons = [
-      {className: "fas fa-circle", to: "/archive/1"},
+      {className: "fas rectangle", to: "/archive/1"},
       {className: "fas fa-th-large", to: "/blog"},
       {className: "fas fa-th", to: "/archive"},
       {className: "fas fa-thumbtack", to: "/author"},
@@ -46,9 +43,8 @@ export default function App() {
 
     return <div className="icon-container">
       {icons.map((icon, index) =>
-        <Link to={icon.to}>
-          <IconButton key={`icon-${index}`}
-                      iconStyle={styles.smallIcon}
+        <Link to={icon.to} key={`icon-${index}`}>
+          <IconButton iconStyle={styles.smallIcon}
                       style={styles.small}
                       iconClassName={icon.className}/>
         </Link>)}

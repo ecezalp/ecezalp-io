@@ -1,4 +1,6 @@
-const howIGotSyntaxHighlightingForMyBlog = '# syntax highlighting for Markdown in React\n' +
+const syntaxHighlight = Object.assign({});
+
+syntaxHighlight.text = '# syntax highlighting for Markdown in React\n' +
   'When I first started conceptualizing this blog, I had a few things in mind. From here on, I will refer to them as my blog principles: \n' +
   '\n' +
   '1. I will use React.js\n' +
@@ -75,4 +77,14 @@ const howIGotSyntaxHighlightingForMyBlog = '# syntax highlighting for Markdown i
   '``` \n' +
   '\n' +
   'to my main.scss file, which is the entry point of my styles. I believe that it would be possible to copy that file into my styles directory and edit it if I had wanted to, but for now I am happy with the original colors. In the future, if I consider giving my readers a button to click to switch up the colors of my site, I will probably get multiple files that way and consider manually editing them, especially since they are very small at 108 lines each. ';
-export default howIGotSyntaxHighlightingForMyBlog;
+
+syntaxHighlight.shortText = 'When I first started conceptualizing this blog, I had a few things in mind. From here on, I will refer to them as my blog principles: \n' +
+  '\n' +
+  '1. I will use React.js\n' +
+  '2. I will write my entries in MacDown, my preferred markdown editor\n' +
+  '3. I will use code blocks in my entries\n' +
+  '4. My code blocks will be in different languages.\n';
+
+syntaxHighlight.tags = ["React"];
+
+export default syntaxHighlight;

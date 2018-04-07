@@ -3,51 +3,89 @@ import blogEntries from "../../resources/blogEntries/blogEntries";
 import BlogEntry from './blogEntry';
 import {Link} from "react-router-dom";
 import Author from "./author";
+import hljs from "highlight.js";
 
+export default class Main extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      componentType: this.props.match.path.substring(1)
+    }
+  }
 
-export default function Main({match}) {
+  componentWillReceiveProps(newProps) {
+    this.setState({componentType: newProps.match.path.substring(1)});
+    hljs.initHighlightingOnLoad();
+    console.log("hit");
+  }
 
-  const componentType = match.path.substring(1);
+  componentWillUpdate() {
+    console.log("updated");
+  }
 
-  const heart = <div className="heart"/>;
+  getHeart() {
+    return <div className="heart"/>;
+  }
 
-  const archive = <div className="archive-container">
-    {blogEntries.map((entry) =>
-      <div className="index-entry-link" key={`link-${entry.id}`}>
-        {heart}
-        <Link to={`/archive/${entry.id}`}>
-          <BlogEntry key={`entry-link-${entry.id}`} entry={entry.title}/>
-        </Link>
-      </div>)}
-  </div>;
+  getArchive() {
+    return <div className="archive-container">
+      {blogEntries.map((entry) =>
+        <div className="index-entry-link" key={`link-${entry.id}`}>
+          {this.getHeart()}
+          <Link to={`/archive/${entry.id}`}>
+            <BlogEntry key={`entry-link-${entry.id}`} entry={entry.title}/>
+          </Link>
+        </div>)}
+    </div>
+  };
 
-  const blog = <div className="blog-entry-container">
-    {blogEntries.map((entry) =>
-      <BlogEntry key={`entry-${entry.id}`} entry={entry.text}/>)}
-  </div>;
+  getTags(tags) {
+    return tags.map((tag, tagIndex) =>
+      <div className="tag-container" key={`tag-${tagIndex}`}>
+        <div className="tag-name">
+          {tag}
+        </div>
+      </div>);
+  }
 
-  const getEntry = () => {
-    let entry = blogEntries.filter(entry => entry.id === match.params.id);
+  getBlog() {
+    return <div className="blog-entry-container">
+      {blogEntries.map((entry) =>
+        <Link to={`/archive/${entry.id}`} key={`entry-${entry.id}`}>
+          <div className="short-entry">
+            <div className="short-title">{entry.title}</div>
+            <div className="tags">{this.getTags(entry.tags)}</div>
+            <div className="short-text">{entry.shortText}</div>
+          </div>
+        </Link>)}
+    </div>;
+  }
+
+  getEntry() {
+    let entry = blogEntries.filter(entry => entry.id === this.props.match.params.id);
     return entry.length > 0 && <div className="solo-entry-container">
       <BlogEntry entry={entry[0].text}/>
     </div>;
   };
 
-  const getComponent = () => {
-    switch (componentType) {
+  getComponent() {
+    switch (this.state.componentType) {
       case "archive/:id":
-        return getEntry();
+        return this.getEntry();
       case "archive":
-        return archive;
+        return this.getArchive();
       case "author":
         return <Author/>;
       case "blog":
-        return blog;
+        return this.getBlog();
     }
   };
 
-  return <div className="blog-inner-container">
-    {getComponent()}
-  </div>;
+  render() {
+    hljs.initHighlightingOnLoad();
+    return <div className="blog-inner-container">
+      {this.getComponent()}
+    </div>;
+  }
 }

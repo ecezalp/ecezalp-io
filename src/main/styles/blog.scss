@@ -1,48 +1,28 @@
 $font_color: #010f5b;
-$navbar_height: 40px;
-
-#navbar {
-  z-index: 5;
-  display: flex;
-  height: $navbar_height;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1), 0 5px 12px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  font-family: "Space Mono";
-  background-color: #efcfcb;
-  color: $font_color;
-  -webkit-font-smoothing: antialiased;
-}
-
-.logo-container {
-  padding-left: 6%;
-  cursor: pointer;
-}
-
-.options-container {
-  display: flex;
-}
-
-.options-container .option {
-  padding: 0 5%;
-  height: 100%;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-text {
-  cursor: pointer;
-  color: $font_color;
-}
 
 .icon-container {
   display: flex;
   flex-direction: column;
   position: fixed;
+  cursor: pointer;
+  margin-top: 20vh;
+  height: 20vh;
+}
+
+.fas {
+  color: $font_color !important;
+}
+
+.rectangle {
+  position: relative;
+  font-size: 24px;
+  display: -webkit-inline-box;
+  user-select: none;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  width: 28px !important;
+  height: 23px !important;
+  border-radius: 13%;
+  background-color: #010f5b;
 }
 
 .main-container {
@@ -68,7 +48,6 @@ $navbar_height: 40px;
 }
 
 .blog-inner-container {
-  padding-top: $navbar_height;
   background-color: #FAF8F1;
   width: 50%;
   letter-spacing: .01em;
@@ -150,6 +129,7 @@ $navbar_height: 40px;
 }
 
 .column-gradient {
+  display: flex;
   justify-content: flex-end;
   min-height: 100vh;
   width: 25%;
@@ -161,28 +141,39 @@ $navbar_height: 40px;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6c5a6', endColorstr='#e27aae',GradientType=0 ); /* IE6-9 */
 }
 
-.column-no-gradient {
-  background-color: #f5dfb5;
-  min-height: 100vh;
-  width: 20%;
-}
-
-.holy-grail-left {
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-}
-
-.onikscim {
-  padding-top: $navbar_height;
-  background-color: #C9899B;
-  position: fixed;
-  width: 20%;
-}
-
 .archive-container p {
   margin: 0.2em 0 !important;
 }
+
+// blog
+
+.short-title {
+  font-weight: bold;
+}
+
+.short-entry {
+  margin: 4vh 0;
+  height: 16vh;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tags {
+  display: flex;
+}
+
+.tag-container {
+  background-color: #F4DCD4;
+  margin: 3px 5px 3px 0;
+  padding: 0 10px;
+  border-radius: 5%;
+}
+
+.tag-text {
+  font-size: 10px;
+}
+
 
 code {
   text-align: start !important;

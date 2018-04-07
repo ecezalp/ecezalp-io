@@ -37,7 +37,8 @@ Edit the file to look more like this (comments are optional):
 # Host Database
 #
 # localhost is used to configure the loopback interface
-# when the system is booting.  Do not change this entry.
+# when the system is boot
+ing.  Do not change this entry.
 ##
 127.0.0.1       localhost
 # block facebook
