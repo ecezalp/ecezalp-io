@@ -1,10 +1,11 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import hljs from 'highlight.js';
 import Main from './components/main';
+import MenuIcons from './components/menuIcons';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import IconButton from 'material-ui/IconButton';
+
 
 export default function App() {
 
@@ -13,52 +14,19 @@ export default function App() {
   };
 
   const entry = ({match}) => {
-    // setTimeout(hljs.initHighlightingOnLoad(), 400);
+    setTimeout(hljs.initHighlightingOnLoad(), 400);
     return <Main key={getKeyToRerender()} match={match}/>;
-  };
-
-  const getRightBlock = (withIcons) => {
-    return withIcons ? <div className="column-gradient">{getIcons()}</div> : <div className="column-gradient"/>;
-  };
-
-  const getIcons = () => {
-    const styles = {
-      smallIcon: {
-        width: 36,
-        height: 36,
-      },
-      small: {
-        width: 72,
-        height: 72,
-        padding: 16,
-      },
-    };
-
-    const icons = [
-      {className: "fas rectangle", to: "/archive/1"},
-      {className: "fas fa-th-large", to: "/blog"},
-      {className: "fas fa-th", to: "/archive"},
-      {className: "fas fa-thumbtack", to: "/author"},
-    ];
-
-    return <div className="icon-container">
-      {icons.map((icon, index) =>
-        <Link to={icon.to} key={`icon-${index}`}>
-          <IconButton iconStyle={styles.smallIcon}
-                      style={styles.small}
-                      iconClassName={icon.className}/>
-        </Link>)}
-    </div>
   };
 
   return <MuiThemeProvider>
     <Router>
       <div className="main-container">
 
-        {getRightBlock(true)}
+        <div className="column-gradient">
+          <MenuIcons/>
+        </div>
 
-
-        <Route exact path="/" component={entry}/>
+        <Redirect exact from="/" to="/blog"/>
         <Route path="/author" component={entry}/>
         <Route path="/blog" component={entry}/>
 
@@ -67,7 +35,7 @@ export default function App() {
           <Route path="/archive/:id" component={entry}/>
         </Switch>
 
-        {getRightBlock()}
+        <div className="column-gradient"/>
 
       </div>
     </Router>

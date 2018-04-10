@@ -1,5 +1,5 @@
 import React from "react";
-import aboutUs from "../../resources/about/aboutUs.jpg";
+import aboutUs from "../../resources/about/aboutUs.png";
 
 export default function Author() {
 

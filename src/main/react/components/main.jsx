@@ -10,8 +10,8 @@ export default class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      componentType: this.props.match.path.substring(1)
-    }
+      componentType: this.props.match.path.substring(1),
+    };
   }
 
   componentWillReceiveProps(newProps) {
@@ -33,7 +33,7 @@ export default class Main extends React.Component {
       {blogEntries.map((entry) =>
         <div className="index-entry-link" key={`link-${entry.id}`}>
           {this.getHeart()}
-          <Link to={`/archive/${entry.id}`}>
+          <Link className="eio-link" to={`/archive/${entry.id}`}>
             <BlogEntry key={`entry-link-${entry.id}`} entry={entry.title}/>
           </Link>
         </div>)}
@@ -52,14 +52,22 @@ export default class Main extends React.Component {
   getBlog() {
     return <div className="blog-entry-container">
       {blogEntries.map((entry) =>
-        <Link to={`/archive/${entry.id}`} key={`entry-${entry.id}`}>
-          <div className="short-entry">
-            <div className="short-title">{entry.title}</div>
-            <div className="tags">{this.getTags(entry.tags)}</div>
-            <div className="short-text">{entry.shortText}</div>
-          </div>
+        <Link className="eio-link" to={`/archive/${entry.id}`} key={`entry-${entry.id}`}>
+          {entry.isLinkDump ? this.getLinkDump(entry) : this.getShortEntry(entry)}
         </Link>)}
     </div>;
+  }
+
+  getLinkDump(entry) {
+    return <div className="short-title">{entry.title}</div>
+  }
+
+  getShortEntry(entry) {
+    return <div className="short-entry">
+      <div className="short-title">{entry.title}</div>
+      <div className="tags">{this.getTags(entry.tags)}</div>
+      <div className="short-text">{entry.shortText}</div>
+    </div>
   }
 
   getEntry() {

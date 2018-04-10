@@ -1,12 +1,12 @@
 $font_color: #010f5b;
 
 .icon-container {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  cursor: pointer;
-  margin-top: 20vh;
   height: 20vh;
+  margin-top: 20vh;
+  position: fixed;
 }
 
 .fas {
@@ -14,100 +14,112 @@ $font_color: #010f5b;
 }
 
 .rectangle {
-  position: relative;
-  font-size: 24px;
+  background-color: #010f5b;
+  border-radius: 13%;
   display: -webkit-inline-box;
-  user-select: none;
+  font-size: 24px;
+  height: 23px !important;
+  position: relative;
   transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   width: 28px !important;
-  height: 23px !important;
-  border-radius: 13%;
-  background-color: #010f5b;
+  user-select: none;
 }
 
 .main-container {
-  display: flex;
   background-color: #F9F5EB;
-  max-width: 100%;
-  width: 100%;
+  display: flex;
   font-size: 1.1em;
   letter-spacing: .01em;
   line-height: 1.60em;
+  max-width: 100%;
+  width: 100%;
 }
 
 .archive-container {
+  margin-top: 4em;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  align-items: center;
+  width: 80%;
 }
 
 .index-entry-link {
-  display: flex;
   align-items: center;
+  display: flex;
+  padding: 5px 0;
 }
 
 .blog-inner-container {
+  display: flex;
+  justify-content: center;
   background-color: #FAF8F1;
-  width: 50%;
-  letter-spacing: .01em;
   color: $font_color;
-  -webkit-font-smoothing: antialiased;
-  text-align: justify;
-  font-family: "PT Sans",Helvetica,Arial,sans-serif;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.5;
   font-weight: 300;
+  letter-spacing: .01em;
+  line-height: 1.5;
+  text-align: justify;
+  width: 50%;
+  -webkit-font-smoothing: antialiased;
 }
 
 .blog-entry-container, .solo-entry-container {
-  padding: 1em 3em;
+  padding: 4em 3em;
+}
+
+.eio-link {
+  color: $font_color;
+  text-decoration: none;
 }
 
 .author-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
 }
 
 .author-pic {
-  height: 30vh;
-  margin-top: 5vh;
-  border-radius: 50%;
   border: 5px solid #010f5b;
+  border-radius: 50%;
+  height: 50vh;
+  margin-top: 3vh;
+}
+
+.link-dump {
+  color: #70155a;
 }
 
 .title-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 5vh;
+  margin-top: 3vh;
 }
 
 .title-name {
-  font-size: 2em;
   font-family: "Salsa";
-  padding-bottom: 4vh;
+  font-size: 2em;
+  padding-bottom: 1vh;
 }
 
 .title-title {
-  font-size: 2em;
   font-family: "Pompiere";
+  font-size: 2em;
 }
 
 .heart:before {
-  content: "\2665";
   color: #e88b7a;
+  content: "\2665";
   padding: 0 5px;
 }
 
 .lines-container {
-  width: 80%;
-  padding-top: 5%;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding-top: 2vh;
+  width: 80%;
 }
 
 .line {
@@ -118,27 +130,27 @@ $font_color: #010f5b;
 
 .line-item {
   color: $font_color;
-  font-family: "Space Mono";
   display: flex;
+  font-family: "Space Mono";
   padding: 0 0.5em;
 }
 
 .admin {
-  padding-top: 5%;
   color: #e88b7a;
+  padding-top: 5%;
 }
 
 .column-gradient {
+  background: rgb(214, 197, 166); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(214, 197, 166, 1) 0%, rgba(249, 226, 185, 1) 16%, rgba(248, 245, 236, 1) 30%, rgba(247, 193, 185, 1) 44%, rgba(178, 212, 247, 1) 64%, rgba(249, 226, 185, 1) 78%, rgba(226, 122, 174, 1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(214, 197, 166, 1) 0%, rgba(249, 226, 185, 1) 16%, rgba(248, 245, 236, 1) 30%, rgba(247, 193, 185, 1) 44%, rgba(178, 212, 247, 1) 64%, rgba(249, 226, 185, 1) 78%, rgba(226, 122, 174, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(214, 197, 166, 1) 0%, rgba(249, 226, 185, 1) 16%, rgba(248, 245, 236, 1) 30%, rgba(247, 193, 185, 1) 44%, rgba(178, 212, 247, 1) 64%, rgba(249, 226, 185, 1) 78%, rgba(226, 122, 174, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d6c5a6+0,f9e2b9+16,f8f5ec+30,f7c1b9+44,b2d4f7+64,f9e2b9+78,e27aae+100 */
   display: flex;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6c5a6', endColorstr='#e27aae', GradientType=0); /* IE6-9 */
   justify-content: flex-end;
   min-height: 100vh;
   width: 25%;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d6c5a6+0,f9e2b9+16,f8f5ec+30,f7c1b9+44,b2d4f7+64,f9e2b9+78,e27aae+100 */
-  background: rgb(214,197,166); /* Old browsers */
-  background: -moz-linear-gradient(top, rgba(214,197,166,1) 0%, rgba(249,226,185,1) 16%, rgba(248,245,236,1) 30%, rgba(247,193,185,1) 44%, rgba(178,212,247,1) 64%, rgba(249,226,185,1) 78%, rgba(226,122,174,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(214,197,166,1) 0%,rgba(249,226,185,1) 16%,rgba(248,245,236,1) 30%,rgba(247,193,185,1) 44%,rgba(178,212,247,1) 64%,rgba(249,226,185,1) 78%,rgba(226,122,174,1) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, rgba(214,197,166,1) 0%,rgba(249,226,185,1) 16%,rgba(248,245,236,1) 30%,rgba(247,193,185,1) 44%,rgba(178,212,247,1) 64%,rgba(249,226,185,1) 78%,rgba(226,122,174,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6c5a6', endColorstr='#e27aae',GradientType=0 ); /* IE6-9 */
 }
 
 .archive-container p {
@@ -153,10 +165,14 @@ $font_color: #010f5b;
 
 .short-entry {
   margin: 4vh 0;
-  height: 16vh;
-  width: 100%;
+}
+
+.short-text {
+  display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .tags {
@@ -165,30 +181,25 @@ $font_color: #010f5b;
 
 .tag-container {
   background-color: #F4DCD4;
+  border-radius: 5%;
   margin: 3px 5px 3px 0;
   padding: 0 10px;
-  border-radius: 5%;
 }
 
 .tag-text {
   font-size: 10px;
 }
 
-
 code {
-  text-align: start !important;
+  color: indianred;
   font-size: 14px !important;
   letter-spacing: .01em;
   line-height: 1.30em !important;
-  color: indianred;
+  text-align: start !important;
 }
 
 p, pre {
   margin: 1em 0;
-}
-
-a {
-  text-decoration: none;
 }
 
 pre {
@@ -199,7 +210,8 @@ pre {
 }
 
 h1 {
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
+  text-align: center;
 }
 
 body {
