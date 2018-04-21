@@ -1,9 +1,6 @@
 const noArgsConstructor = Object.assign({});
 
-noArgsConstructor.text = "# @NoArgsConstructor for @RequestBody\n" +
-  "\n" +
-  "\n" +
-  "Recently I ran into an interesting problem. I wanted two classes with the same fields. Therefore, I created an abstract class, and extended that into my objects. It looked vaguely like this:\n" +
+noArgsConstructor.text = "Recently I ran into an interesting problem. I wanted two classes with the same fields. Therefore, I created an abstract class, and extended that into my objects. It looked vaguely like this:\n" +
   "\n" +
   "```java\n" +
   "@AllArgsConstructor\n" +
@@ -87,6 +84,8 @@ noArgsConstructor.text = "# @NoArgsConstructor for @RequestBody\n" +
   "Long story short, always use @NoArgsConstructor if you would like to use the @RequestBody annotation!\n" +
   "\n" +
   "\n";
+
+noArgsConstructor.title =  "@NoArgsConstructor for @RequestBody";
 
 noArgsConstructor.shortText =   "Recently I ran into an interesting problem. I wanted two classes with the same fields. Therefore, I created an abstract class, and extended that into my objects. It looked vaguely like this:\n"
 

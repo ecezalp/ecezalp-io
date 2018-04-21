@@ -1,8 +1,6 @@
 const blockOnMac = Object.assign({});
 
-blockOnMac.text = "# block social media sites on your Mac\n" +
-  "\n" +
-  "I spend many, many hours on the computer every day. I work full time as a software engineer, and I code pet projects on weekends. Recently I have started this blog, which also means more time spent on the computer. \n" +
+blockOnMac.text = "I spend many, many hours on the computer every day. I work full time as a software engineer, and I code pet projects on weekends. Recently I have started this blog, which also means more time spent on the computer. \n" +
   "\n" +
   "I wanted to decrease my screen time, but not give up on my passion of web development. With my partner's advice, I decided to let go of some social media sites on my personal computer. Here is how:\n" +
   "\n" +
@@ -61,6 +59,8 @@ blockOnMac.text = "# block social media sites on your Mac\n" +
   "**3. Execute** ```sudo dscacheutil -flushcache``` **and clear your browser cache**\n" +
   "\n" +
   "Now that you updated the hosts file, you will now be redirected to your localhost whenever you make a request to those links. However, there might have been some cache leftover that makes it look like the operation was unsuccessful. In order to avoid that scenario, you might want to flush your DNS cache by running the script above, as well as open your browser and clear the browser cache (in Chrome, open the developer tools by pressing ```Command + Option + J```, right click the page refresh arrow, and select ```Empty Cache and Hard Reload```.";
+
+blockOnMac.title = "block social media sites on your Mac";
 
 blockOnMac.shortText =  "I spend many, many hours on the computer every day. I work full time as a software engineer, and I code pet projects on weekends. Recently I have started this blog, which also means more time spent on the computer. \n" +
   "\n" +

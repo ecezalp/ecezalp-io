@@ -59,12 +59,12 @@ $font_color: #010f5b;
   letter-spacing: .01em;
   line-height: 1.5;
   text-align: justify;
-  width: 50%;
+  width: 55%;
   -webkit-font-smoothing: antialiased;
 }
 
 .blog-entry-container, .solo-entry-container {
-  padding: 4em 3em;
+  padding: 2em 3em;
 }
 
 .eio-link {
@@ -114,7 +114,7 @@ $font_color: #010f5b;
   padding: 0 5px;
 }
 
-.lines-container {
+.skills-container {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -150,7 +150,7 @@ $font_color: #010f5b;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6c5a6', endColorstr='#e27aae', GradientType=0); /* IE6-9 */
   justify-content: flex-end;
   min-height: 100vh;
-  width: 25%;
+  min-width: 22.5%;
 }
 
 .archive-container p {
@@ -159,15 +159,15 @@ $font_color: #010f5b;
 
 // blog
 
-.short-title {
+.summary-title {
   font-weight: bold;
 }
 
-.short-entry {
+.entry-summary {
   margin: 4vh 0;
 }
 
-.short-text {
+.summary-text {
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -175,7 +175,7 @@ $font_color: #010f5b;
   -webkit-box-orient: vertical;
 }
 
-.tags {
+.summary-tags {
   display: flex;
 }
 
@@ -190,12 +190,25 @@ $font_color: #010f5b;
   font-size: 10px;
 }
 
+.title-entry {
+  font-family: "Salsa";
+  font-size: 1.5em;
+  text-align: center;
+  padding-bottom: 1vh;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 code {
   color: indianred;
   font-size: 14px !important;
   letter-spacing: .01em;
   line-height: 1.30em !important;
   text-align: start !important;
+  padding: 2em !important;
 }
 
 p, pre {

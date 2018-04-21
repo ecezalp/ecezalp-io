@@ -1,8 +1,6 @@
 const reduceComprehensive = Object.assign({});
 
-reduceComprehensive.text = '# a comprehensive guide on `.reduce()`\n' +
-  '\n' +
-  'Today I want to briefly talk about the **reduce** function in JavaScript, and how it can be used in creative ways. \n' +
+reduceComprehensive.text = 'Today I want to briefly talk about the **reduce** function in JavaScript, and how it can be used in creative ways. \n' +
   '\n' +
   '**reduce** is *fold* in functional programming. It is a [higher order function](link is here) that takes a function and a list, and calls the function on each node of the list while accumulating the return. \n' +
   '\n' +
@@ -177,6 +175,8 @@ reduceComprehensive.text = '# a comprehensive guide on `.reduce()`\n' +
   '}, 0);\n' +
   '// 35\n' +
   '```\n';
+
+reduceComprehensive.title = 'a comprehensive guide on .reduce()';
 
 reduceComprehensive.shortText = 'Today I want to briefly talk about the **reduce** function in JavaScript, and how it can be used in creative ways. \n' +
   '\n' +

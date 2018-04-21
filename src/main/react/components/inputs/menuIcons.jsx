@@ -1,7 +1,7 @@
 import React from 'react';
 import IconButton from 'material-ui/IconButton';
 import {Link} from 'react-router-dom';
-import blogEntries from '../../resources/blogEntries/blogEntries'
+import blogEntries from '../../../resources/blogEntries/blogEntries'
 
 export default function MenuIcons() {
   const styles = {

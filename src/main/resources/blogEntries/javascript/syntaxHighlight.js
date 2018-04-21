@@ -1,7 +1,6 @@
 const syntaxHighlight = Object.assign({});
 
-syntaxHighlight.text = '# syntax highlighting for Markdown in React\n' +
-  'When I first started conceptualizing this blog, I had a few things in mind. From here on, I will refer to them as my blog principles: \n' +
+syntaxHighlight.text = 'When I first started conceptualizing this blog, I had a few things in mind. From here on, I will refer to them as my blog principles: \n' +
   '\n' +
   '1. I will use React.js\n' +
   '2. I will write my entries in MacDown, my preferred markdown editor\n' +
@@ -50,9 +49,9 @@ syntaxHighlight.text = '# syntax highlighting for Markdown in React\n' +
   '\n' +
   '\n' +
   '```\n' +
-  'import React from \'react\';\n' +
-  'import ReactMarkdown from \'react-markdown\';\n' +
-  'import hljs from \'highlight.js\';\n' +
+  'import React from \"react\";\n' +
+  'import ReactMarkdown from \"react-markdown\";\n' +
+  'import hljs from \"highlight.js\";\n' +
   '\n' +
   'import testBlogEntry from "../resources/blogEntries/testBlogEntry";\n' +
   '\n' +
@@ -77,6 +76,8 @@ syntaxHighlight.text = '# syntax highlighting for Markdown in React\n' +
   '``` \n' +
   '\n' +
   'to my main.scss file, which is the entry point of my styles. I believe that it would be possible to copy that file into my styles directory and edit it if I had wanted to, but for now I am happy with the original colors. In the future, if I consider giving my readers a button to click to switch up the colors of my site, I will probably get multiple files that way and consider manually editing them, especially since they are very small at 108 lines each. ';
+
+syntaxHighlight.title = 'syntax highlighting for Markdown in React';
 
 syntaxHighlight.shortText = 'When I first started conceptualizing this blog, I had a few things in mind. From here on, I will refer to them as my blog principles: \n' +
   '\n' +
