@@ -202,6 +202,16 @@ $font_color: #010f5b;
   justify-content: space-between;
 }
 
+//form page
+
+.eio-field {
+  width: 75% !important;
+}
+
+eio-field-input {
+  width: 100% !important;
+}
+
 code {
   color: indianred;
   font-size: 14px !important;

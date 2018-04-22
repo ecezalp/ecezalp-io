@@ -17,8 +17,8 @@ export default function LargeMultiEntryView({entries}) {
   const getEntrySummary = (entry) => {
     return <div className="entry-summary">
       <div className="summary-title">{entry.title}</div>
-      <div className="summary-tags">{getTags(entry.tags)}</div>
       <div className="summary-text">{entry.shortText}</div>
+      <div className="summary-tags">{getTags(entry.tags)}</div>
     </div>
   };
 

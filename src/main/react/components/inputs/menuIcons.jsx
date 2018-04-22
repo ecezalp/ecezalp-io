@@ -21,6 +21,7 @@ export default function MenuIcons() {
     {className: "fas fa-th-large", to: "/blog"},
     {className: "fas fa-th", to: "/archive"},
     {className: "fas fa-thumbtack", to: "/author"},
+    {className: "fas fa-cloud-upload-alt", to:"/entries/new"}
   ];
 
   return <div className="icon-container">

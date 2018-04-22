@@ -11,6 +11,8 @@ import SingleEntryView from "./components/views/singleEntryView";
 import SmallMultiEntryView from "./components/views/smallMultiEntryView";
 import LargeMultiEntryView from "./components/views/largeMultiEntryView";
 
+import EntryForm from './components/forms/entryForm';
+
 import WithHighlight from "./components/higherOrder/withHighlight";
 
 
@@ -35,6 +37,16 @@ export default function App() {
     return <Author/>;
   };
 
+  const getEntryForm = (props) => {
+    let componentProps = {};
+    if (props.location.pathname.endsWith("/new")) {
+
+    } else {
+
+    }
+    return <EntryForm {...componentProps}/>;
+  };
+
   return <MuiThemeProvider>
     <Router>
       <div className="main-container">
@@ -50,6 +62,10 @@ export default function App() {
           <Switch>
             <Route exact path="/archive" component={getSmallMultiEntry}/>
             <Route path="/archive/:id" component={getSingleEntry}/>
+          </Switch>
+
+          <Switch>
+            <Route path="/entries/new" component={getEntryForm}/>
           </Switch>
         </div>
 
