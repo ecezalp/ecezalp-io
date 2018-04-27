@@ -212,6 +212,43 @@ eio-field-input {
   width: 100% !important;
 }
 
+.text-area-title {
+  font-family: Roboto, sans-serif;
+  color: rgb(30, 136, 229);
+}
+
+.form-container .eio-field {
+  padding: 20px 0;
+}
+
+.form-container textarea {
+  border: none !important;
+  width: 100%;
+}
+
+.form-container {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body-container textarea, .text-container textarea{
+  height: 6em;
+}
+
+textarea:focus {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.05), 0 10px 10px rgba(0,0,0,0.02) !important;
+  //border: none !important;
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  //box-shadow: none;
+}
+
 code {
   color: indianred;
   font-size: 14px !important;

@@ -1,6 +1,11 @@
 import React from 'react';
-import {TextField} from "material-ui";
+import {TextField, Checkbox} from "material-ui";
 import {blue600} from 'material-ui/styles/colors';
+
+import ActionFavorite from 'material-ui/svg-icons/action/favorite';
+import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+import Visibility from 'material-ui/svg-icons/action/visibility';
+import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
 
 export default class EntryForm extends React.Component {
 
@@ -29,15 +34,53 @@ export default class EntryForm extends React.Component {
     };
   }
 
+  getCheckboxStyles() {
+    return {
+      block: {
+        maxWidth: 250,
+      },
+      checkbox: {
+        marginBottom: 16,
+      },
+    };
+  }
+
   getTextField(title, field, styles) {
     return <TextField hintText={title}
                       onChange={(e) => this.changeEntryField(field, e.target.value)}
                       floatingLabelText={title}
                       value={this.state.entry[field]}
                       errorStyle={styles.errorStyle}
+                      fullWidth={true}
                       underlineFocusStyle={styles.borderColorBlue}
                       underlineStyle={styles.borderColorBlue}
                       floatingLabelStyle={styles.colorBlue}/>
+  }
+
+  getTextArea(title, field) {
+    return <div className={'text-area-container'}>
+      {this.getTitle(title)}
+      <textarea value={this.state.entry[field]}
+                onChange={(e) => this.changeEntryField(field, e.target.value)}>
+        </textarea>
+    </div>;
+  }
+
+  getCheckbox(title) {
+    return <div className={'text-area-container'}>
+      <div className="checkbox">
+        <label>
+          {this.getTitle(title)}
+          <input type="checkbox"/>
+        </label>
+      </div>
+    </div>;
+  }
+
+  getTitle(title) {
+    return <div className={'text-area-title'}>
+      {title}
+    </div>
   }
 
   changeEntryField(field, value) {
@@ -59,11 +102,15 @@ export default class EntryForm extends React.Component {
       </div>
 
       <div className="body-container eio-field">
-        {this.getTextField("Text", "text", textFieldStyles)}
+        {this.getTextArea("Text", "text")}
+      </div>
+
+      <div className="islinkdump-container eio-field">
+        {this.getCheckbox("Link Dump")}
       </div>
 
       <div className="text-container eio-field">
-        {this.getTextField("Short Text", "shortText", textFieldStyles)}
+        {this.getTextArea("Short Text", "shortText")}
       </div>
 
       <div className="tags-container eio-field">
