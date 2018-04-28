@@ -55,7 +55,7 @@ const WBBPACK_SRC_CONFIG = {
     extensions: ['.js', '.jsx', '.json', '.scss', '.css']
   }, plugins: [
     new ExtractTextPlugin('bundle.css')
-  ]
+  ],
 };
 
 const WEBPACK_BUILD_CONFIG = _.merge({}, WBBPACK_SRC_CONFIG, {

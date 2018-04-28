@@ -14,9 +14,12 @@ import LargeMultiEntryView from "./components/views/largeMultiEntryView";
 import EntryForm from './components/forms/entryForm';
 
 import WithHighlight from "./components/higherOrder/withHighlight";
+import EntryRepository from "./components/repositories/entryRepository";
 
 
 export default function App() {
+
+  const entryRepository = new EntryRepository();
 
   const getSingleEntry = ({match}) => {
     return <WithHighlight>
@@ -40,7 +43,7 @@ export default function App() {
   const getEntryForm = (props) => {
     let componentProps = {};
     if (props.location.pathname.endsWith("/new")) {
-
+      return <EntryForm {...componentProps} create={entryRepository.create}/>
     } else {
 
     }

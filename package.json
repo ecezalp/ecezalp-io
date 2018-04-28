@@ -19,6 +19,7 @@
     "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
+    "firebase": "^4.13.1",
     "gulp": "^3.9.1",
     "gulp-eslint": "^4.0.0",
     "gulp-jasmine-browser": "^1.9.1",

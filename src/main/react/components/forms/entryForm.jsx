@@ -8,21 +8,15 @@ export default class EntryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      entry: {
-        id: 0,
-        title: "",
-        shortText: "",
-        tags: [],
-        text: "",
-        isLinkDump: false,
-        colors: ["", "", "", "", "", "", ""],
-      },
+      entry: this.getEmptyEntry(),
       isColorPickerVisible: false,
       activeColorIndex: -1,
+      password: "",
     };
 
     this.colorSquareClickHandler = this.colorSquareClickHandler.bind(this);
     this.closeColorPicker = this.closeColorPicker.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   getTextFieldStyles() {
@@ -45,7 +39,9 @@ export default class EntryForm extends React.Component {
   getPasswordField(styles) {
     return <div className="tags-container eio-field">
       <TextField fullWidth={true}
+                 onChange={(e) => this.setState({password: e.target.value})}
                  floatingLabelText={"Password"}
+                 value={this.state.password}
                  floatingLabelStyle={styles.colorOrange}
                  underlineFocusStyle={styles.borderColorOrange}
                  underlineStyle={styles.colorOrange}/>
@@ -86,7 +82,7 @@ export default class EntryForm extends React.Component {
         {this.getTitle(title)}
         <div className={checkboxClassName}
              onClick={() => this.handleEntryChange("isLinkDump", isLinkDump)}>
-          {!isLinkDump && <i class="material-icons">check_box</i>}
+          {!isLinkDump && <i className="material-icons">check_box</i>}
         </div>
       </div>
     </div>;
@@ -132,7 +128,7 @@ export default class EntryForm extends React.Component {
     </div>
   }
 
-  closeColorPicker(){
+  closeColorPicker() {
     this.setState({activeColorIndex: -1})
   }
 
@@ -140,6 +136,31 @@ export default class EntryForm extends React.Component {
     let entry = this.state.entry;
     entry.colors[this.state.activeColorIndex] = color.hex;
     this.setState({entry})
+  }
+
+  getSubmitButton() {
+    if (this.state.password === "password") {
+      return <div className="submit-button">
+        <i className="material-icons" onClick={this.handleSubmit}>send</i>
+      </div>
+    }
+  }
+
+  handleSubmit() {
+    this.props.create(this.state.entry);
+    this.setState({entry: this.getEmptyEntry(), password: ""})
+  }
+
+  getEmptyEntry() {
+    return Object.assign({}, {
+      id: 0,
+      title: "",
+      shortText: "",
+      tags: [],
+      text: "",
+      isLinkDump: false,
+      colors: ["", "", "", "", "", "", ""],
+    });
   }
 
   render() {
@@ -154,6 +175,7 @@ export default class EntryForm extends React.Component {
       {this.getColorsContainer()}
       {this.getColorPicker()}
       {this.getPasswordField(textFieldStyles)}
+      {this.getSubmitButton()}
     </div>
   };
 }
