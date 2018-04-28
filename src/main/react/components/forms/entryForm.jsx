@@ -1,11 +1,7 @@
 import React from 'react';
-import {TextField, Checkbox} from "material-ui";
-import {blue600} from 'material-ui/styles/colors';
-
-import ActionFavorite from 'material-ui/svg-icons/action/favorite';
-import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
-import Visibility from 'material-ui/svg-icons/action/visibility';
-import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
+import {TextField} from "material-ui";
+import {blue600, orange600} from 'material-ui/styles/colors';
+import {ChromePicker} from 'react-color';
 
 export default class EntryForm extends React.Component {
 
@@ -19,8 +15,14 @@ export default class EntryForm extends React.Component {
         tags: [],
         text: "",
         isLinkDump: false,
+        colors: ["", "", "", "", "", "", ""],
       },
+      isColorPickerVisible: false,
+      activeColorIndex: -1,
     };
+
+    this.colorSquareClickHandler = this.colorSquareClickHandler.bind(this);
+    this.closeColorPicker = this.closeColorPicker.bind(this);
   }
 
   getTextFieldStyles() {
@@ -31,48 +33,61 @@ export default class EntryForm extends React.Component {
       borderColorBlue: {
         borderColor: blue600,
       },
+      colorOrange: {
+        color: orange600,
+      },
+      borderColorOrange: {
+        borderColor: orange600,
+      },
     };
   }
 
-  getCheckboxStyles() {
-    return {
-      block: {
-        maxWidth: 250,
-      },
-      checkbox: {
-        marginBottom: 16,
-      },
-    };
+  getPasswordField(styles) {
+    return <div className="tags-container eio-field">
+      <TextField fullWidth={true}
+                 floatingLabelText={"Password"}
+                 floatingLabelStyle={styles.colorOrange}
+                 underlineFocusStyle={styles.borderColorOrange}
+                 underlineStyle={styles.colorOrange}/>
+    </div>
   }
 
   getTextField(title, field, styles) {
-    return <TextField hintText={title}
-                      onChange={(e) => this.changeEntryField(field, e.target.value)}
-                      floatingLabelText={title}
-                      value={this.state.entry[field]}
-                      errorStyle={styles.errorStyle}
-                      fullWidth={true}
-                      underlineFocusStyle={styles.borderColorBlue}
-                      underlineStyle={styles.borderColorBlue}
-                      floatingLabelStyle={styles.colorBlue}/>
+    return <div className="tags-container eio-field">
+      <TextField hintText={title}
+                 onChange={(e) => this.handleEntryChange(field, e.target.value)}
+                 floatingLabelText={title}
+                 value={this.state.entry[field]}
+                 errorStyle={styles.errorStyle}
+                 fullWidth={true}
+                 underlineFocusStyle={styles.borderColorBlue}
+                 underlineStyle={styles.borderColorBlue}
+                 floatingLabelStyle={styles.colorBlue}/>
+    </div>
   }
 
   getTextArea(title, field) {
-    return <div className={'text-area-container'}>
-      {this.getTitle(title)}
-      <textarea value={this.state.entry[field]}
-                onChange={(e) => this.changeEntryField(field, e.target.value)}>
+    return <div className="text-container eio-field">
+      <div className='text-area-container'>
+        {this.getTitle(title)}
+        <textarea value={this.state.entry[field]}
+                  onChange={(e) => this.handleEntryChange(field, e.target.value)}>
         </textarea>
+      </div>
     </div>;
   }
 
   getCheckbox(title) {
-    return <div className={'text-area-container'}>
-      <div className="checkbox">
-        <label>
-          {this.getTitle(title)}
-          <input type="checkbox"/>
-        </label>
+    let isLinkDump = !this.state.entry.isLinkDump;
+    let checkboxClassName = `hex-square check is-${isLinkDump ? 'checked' : 'not-checked'}`;
+
+    return <div className="islinkdump-container eio-field">
+      <div className={'checkbox-container'}>
+        {this.getTitle(title)}
+        <div className={checkboxClassName}
+             onClick={() => this.handleEntryChange("isLinkDump", isLinkDump)}>
+          {!isLinkDump && <i class="material-icons">check_box</i>}
+        </div>
       </div>
     </div>;
   }
@@ -83,40 +98,62 @@ export default class EntryForm extends React.Component {
     </div>
   }
 
-  changeEntryField(field, value) {
+  handleEntryChange(field, value) {
     let entry = this.state.entry;
     entry[field] = value;
     this.setState({entry});
+  }
+
+  colorSquareClickHandler(index) {
+    this.setState({isColorPickerVisible: true, activeColorIndex: index});
+  }
+
+  getColorSquare(hex, index) {
+    return <div key={`hex-${index}`}
+                className="hex-square"
+                style={{backgroundColor: hex}}
+                onClick={() => this.colorSquareClickHandler(index)}/>;
+  }
+
+  getColorsContainer() {
+    return <div className="colors-container eio-field">
+      {this.getTitle("Colors")}
+      {this.state.entry.colors.map((color, index) => this.getColorSquare(color, index))}
+    </div>
+  }
+
+  getColorPicker() {
+    return <div className="color-picker-container eio-field">
+      {this.state.activeColorIndex > -1 && <div>
+        <i className="material-icons" onClick={this.closeColorPicker}>close</i>
+        <ChromePicker color={this.state.entry.colors[this.state.activeColorIndex]}
+                      onChangeComplete={(color, event) => this.handleColorChange(color, event)}/>
+      </div>}
+    </div>
+  }
+
+  closeColorPicker(){
+    this.setState({activeColorIndex: -1})
+  }
+
+  handleColorChange(color) {
+    let entry = this.state.entry;
+    entry.colors[this.state.activeColorIndex] = color.hex;
+    this.setState({entry})
   }
 
   render() {
     let textFieldStyles = this.getTextFieldStyles();
 
     return <div className="form-container">
-      <div className="welcome-text">
-        Lorem Ipsum Dolor Sit Amet
-      </div>
-
-      <div className="title-containter eio-field">
-        {this.getTextField("Title", "title", textFieldStyles)}
-      </div>
-
-      <div className="body-container eio-field">
-        {this.getTextArea("Text", "text")}
-      </div>
-
-      <div className="islinkdump-container eio-field">
-        {this.getCheckbox("Link Dump")}
-      </div>
-
-      <div className="text-container eio-field">
-        {this.getTextArea("Short Text", "shortText")}
-      </div>
-
-      <div className="tags-container eio-field">
-        {this.getTextField("Tags", "tags", textFieldStyles)}
-      </div>
-
-    </div>;
+      {this.getTextField("Title", "title", textFieldStyles)}
+      {this.getTextField("Tags", "tags", textFieldStyles)}
+      {this.getTextArea("Text", "text")}
+      {this.getTextArea("Short Text", "shortText")}
+      {this.getCheckbox("Link Dump")}
+      {this.getColorsContainer()}
+      {this.getColorPicker()}
+      {this.getPasswordField(textFieldStyles)}
+    </div>
   };
 }
