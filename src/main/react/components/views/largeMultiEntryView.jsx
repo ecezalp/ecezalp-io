@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export default function LargeMultiEntryView({entries}) {
 
   const getTags = (tags) => {
-    return tags.map((tag, tagIndex) =>
+    return tags.split(",").map((tag, tagIndex) =>
       <div className="tag-container" key={`tag-${tagIndex}`}>
         <div className="tag-name">
           {tag}

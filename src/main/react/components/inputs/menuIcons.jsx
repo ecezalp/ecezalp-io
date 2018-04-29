@@ -1,9 +1,8 @@
 import React from 'react';
 import IconButton from 'material-ui/IconButton';
 import {Link} from 'react-router-dom';
-import blogEntries from '../../../resources/blogEntries/blogEntries'
 
-export default function MenuIcons() {
+export default function MenuIcons({entries}) {
   const styles = {
     smallIcon: {
       width: 36,
@@ -17,7 +16,7 @@ export default function MenuIcons() {
   };
 
   const icons = [
-    {className: "fas rectangle", to: `/archive/${blogEntries[0].id}`},
+    {className: "fas rectangle", to: `/archive/${entries.length > 0 && entries[0].id}`},
     {className: "fas fa-th-large", to: "/blog"},
     {className: "fas fa-th", to: "/archive"},
     {className: "fas fa-thumbtack", to: "/author"},
