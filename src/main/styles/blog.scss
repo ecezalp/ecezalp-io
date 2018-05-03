@@ -64,7 +64,7 @@ $font_color: #010f5b;
 }
 
 .blog-entry-container, .solo-entry-container {
-  padding: 2em 3em;
+  width: 50%;
 }
 
 .eio-link {
@@ -304,7 +304,7 @@ textarea:focus {
 
 code {
   color: indianred;
-  font-size: 14px !important;
+  font-size: 12px !important;
   letter-spacing: .01em;
   line-height: 1.30em !important;
   text-align: start !important;
@@ -320,6 +320,8 @@ pre {
   white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
+  -moz-tab-size: 2; /* Firefox */
+  tab-size: 2;
 }
 
 h1 {
