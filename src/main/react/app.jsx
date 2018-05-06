@@ -7,22 +7,23 @@ import LargeMultiEntryView from "./components/views/largeMultiEntryView";
 import EntryForm from './components/forms/entryForm';
 
 import WithHighlight from "./components/higherOrder/withHighlight";
+import WithColumns from "./components/higherOrder/withColumns";
 import EntryRepository from "./components/repositories/entryRepository";
 import {MuiThemeProvider} from "material-ui";
-import {Route, BrowserRouter, Switch} from "react-router-dom";
-import MenuIcons from "./components/inputs/menuIcons";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 export default class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      entries: []
+      entries: [],
+      colors: [],
     };
 
     this.entryRepository = new EntryRepository();
     this.getSmallMultiEntry = this.getSmallMultiEntry.bind(this);
-    this.getSingleEntry= this.getSingleEntry.bind(this);
+    this.getSingleEntry = this.getSingleEntry.bind(this);
     this.getLargeMultiEntry = this.getLargeMultiEntry.bind(this);
     this.getEntryForm = this.getEntryForm.bind(this);
   }
@@ -34,42 +35,49 @@ export default class App extends React.Component {
   }
 
   getSingleEntry({match}) {
+    let selectedEntry = this.state.entries.filter(entry => entry.id.toString() === match.params.id)[0];
+
+    if(this.state.colors !== selectedEntry.colors) {
+      this.setState({colors: selectedEntry.colors});
+    }
+
     return <WithHighlight>
-      <SingleEntryView entry={this.state.entries.filter(entry => entry.id.toString() === match.params.id)[0]}
+      <SingleEntryView entry={selectedEntry}
                        totalEntryCount={this.state.entries.length}/>
     </WithHighlight>;
   };
 
   getSmallMultiEntry() {
-    return <SmallMultiEntryView entries={this.state.entries}/>;
+    return <SmallMultiEntryView {...this.state}/>;
   };
 
   getLargeMultiEntry() {
-    return <LargeMultiEntryView entries={this.state.entries}/>;
+    return <LargeMultiEntryView {...this.state}/>;
   };
 
   getAuthor() {
     return <Author/>;
   };
 
-  getEntryForm(props) {
-    let componentProps = {};
-    if (props.location.pathname.endsWith("/new")) {
-      return <EntryForm {...componentProps} create={this.entryRepository.create}/>
-    } else {
+  getNextId() {
+    let currentId = this.state.entries.reduce((acc, entry) => {
+      if (entry.id > acc) {
+        acc = entry.id;
+      }
+      return acc;
+    }, 0);
+    return currentId + 1;
+  }
 
-    }
-    return <EntryForm {...componentProps}/>;
+  getEntryForm() {
+    return <EntryForm entryRepository={this.entryRepository}
+                      id={this.getNextId()}/>;
   };
 
   render() {
     return <MuiThemeProvider>
       <BrowserRouter>
-        <div className="main-container">
-          <div className="column-gradient">
-            <MenuIcons entries={this.state.entries}/>
-          </div>
-
+        <WithColumns {...this.state}>
           <div className="blog-inner-container">
             <Route exact path="/" component={this.getSmallMultiEntry}/>
             <Route path="/author" component={this.getAuthor}/>
@@ -84,10 +92,7 @@ export default class App extends React.Component {
               <Route path="/entries/new" component={this.getEntryForm}/>
             </Switch>
           </div>
-
-          <div className="column-gradient"/>
-
-        </div>
+        </WithColumns>
       </BrowserRouter>
     </MuiThemeProvider>
   }

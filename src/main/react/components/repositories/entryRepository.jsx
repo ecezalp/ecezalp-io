@@ -11,7 +11,7 @@ export default class EntryRepository {
   findAll() {
     let ref = firebase.database().ref('entries');
     return ref.once('value').then(function (snapshot) {
-      return Object.keys(snapshot.val()).map(key => snapshot.val()[key]);
+      return Object.keys(snapshot.val()).map(key => snapshot.val()[key]).reverse();
     }, function (error) {
       console.error(error);
     });

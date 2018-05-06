@@ -1,7 +1,9 @@
 import React from 'react';
+
 import {TextField} from "material-ui";
 import {blue600, orange600} from 'material-ui/styles/colors';
 import {ChromePicker} from 'react-color';
+import PropTypes from 'prop-types';
 
 export default class EntryForm extends React.Component {
 
@@ -18,6 +20,15 @@ export default class EntryForm extends React.Component {
     this.closeColorPicker = this.closeColorPicker.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentWillReceiveProps(newProps) {
+    if (this.state.entry.id !== newProps.id) {
+      let entry = this.state.entry;
+      entry.id = newProps.id;
+      this.setState({entry});
+    }
+  }
+
 
   getTextFieldStyles() {
     return {
@@ -147,7 +158,7 @@ export default class EntryForm extends React.Component {
   }
 
   handleSubmit() {
-    this.props.create(this.state.entry);
+    this.props.entryRepository.create(this.state.entry);
     this.setState({entry: this.getEmptyEntry(), password: ""})
   }
 
@@ -179,3 +190,8 @@ export default class EntryForm extends React.Component {
     </div>
   };
 }
+
+EntryForm.propTypes = {
+  entryRepository: PropTypes.object,
+  id: PropTypes.number,
+};

@@ -17,25 +17,32 @@ export default function SingleEntryView({entry, totalEntryCount}) {
 
     return <Link className="eio-link" to={linkTo} style={{visibility}}>
       <div className="tag-container" key={`${title}-button`} style={{visibility}}>
-          <i className={iconClassName} style={{padding: "5px"}}/>
+        <i className={iconClassName} style={{padding: "5px"}}/>
       </div>
     </Link>
   };
 
-  const prevAndNextButtons = <div className="button-container">
-    {getButtonWithTitle("Prev")}
-    {getButtonWithTitle("Next")}
-  </div>;
+  const getButtonStyles = (withTitle) => {
+    return withTitle ? {paddingTop: "5vh"} : {
+      paddingTop: "1vh",
+      paddingBottom: "5vh"
+    }
+  };
+
+  const buttons = (withTitle) =>
+    <div className={`button-container`} style={getButtonStyles(withTitle)}>
+      {getButtonWithTitle("Prev")}
+      {withTitle ? entryTitle : pageNumber}
+      {getButtonWithTitle("Next")}
+    </div>;
 
   const formattedEntry = <BlogEntry entry={entry.text}/>;
 
   const entryTitle = <div className="title-entry">{entry.title}</div>;
 
   return <div className="solo-entry-container">
-    {entryTitle}
-    {prevAndNextButtons}
+    {buttons(true)}
     {formattedEntry}
-    {prevAndNextButtons}
-    {pageNumber}
+    {buttons()}
   </div>;
 }
