@@ -16,7 +16,7 @@ export default function SingleEntryView({entry, totalEntryCount}) {
     let iconClassName = title === "Next" ? "fas fa-arrow-right" : "fas fa-arrow-left";
 
     return <Link className="eio-link" to={linkTo} style={{visibility}}>
-      <div className="tag-container" key={`${title}-button`} style={{visibility}}>
+      <div className="arrow-container" key={`${title}-button`} style={{visibility}}>
         <i className={iconClassName} style={{padding: "5px"}}/>
       </div>
     </Link>
@@ -38,7 +38,7 @@ export default function SingleEntryView({entry, totalEntryCount}) {
 
   const formattedEntry = <BlogEntry entry={entry.text}/>;
 
-  const entryTitle = <div className="title-entry">{entry.title}</div>;
+  const entryTitle = <div className="title-entry">{entry.title ? entry.title : "rendering"}</div>;
 
   return <div className="solo-entry-container">
     {buttons(true)}

@@ -150,7 +150,7 @@ export default class EntryForm extends React.Component {
   }
 
   getSubmitButton() {
-    if (this.state.password === "password") {
+    if (this.state.password === "not-implemented-yet") {
       return <div className="submit-button">
         <i className="material-icons" onClick={this.handleSubmit}>send</i>
       </div>

@@ -26,6 +26,7 @@ export default class App extends React.Component {
     this.getSingleEntry = this.getSingleEntry.bind(this);
     this.getLargeMultiEntry = this.getLargeMultiEntry.bind(this);
     this.getEntryForm = this.getEntryForm.bind(this);
+    this.updateBackgroundColor = this.updateBackgroundColor.bind(this);
   }
 
   componentWillMount() {
@@ -34,15 +35,20 @@ export default class App extends React.Component {
     });
   }
 
+  updateBackgroundColor(match, entry) {
+    if(entry && entry.colors) {
+      if (this.state.colors !== entry.colors) {
+        this.setState({colors: entry.colors});
+      }
+    }
+  }
+
   getSingleEntry({match}) {
     let selectedEntry = this.state.entries.filter(entry => entry.id.toString() === match.params.id)[0];
-
-    if(this.state.colors !== selectedEntry.colors) {
-      this.setState({colors: selectedEntry.colors});
-    }
+    this.updateBackgroundColor(match, selectedEntry);
 
     return <WithHighlight>
-      <SingleEntryView entry={selectedEntry}
+      <SingleEntryView entry={selectedEntry || {id: "", text: ""}}
                        totalEntryCount={this.state.entries.length}/>
     </WithHighlight>;
   };
