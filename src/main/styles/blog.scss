@@ -65,10 +65,30 @@ $font_color: #010f5b;
   text-align: justify;
   width: 55%;
   -webkit-font-smoothing: antialiased;
+  width: 100%;
+}
+
+.infinite-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-number {
+  display: block;
+  height: 150px;
+  visibility: hidden;
 }
 
 .solo-entry-container {
   width: 60%;
+  display: flex;
+  justify-content: center;
+
+  .solo-text-container {
+    width: 60%;
+  }
 }
 
 .blog-entry-container {
@@ -194,6 +214,7 @@ $font_color: #010f5b;
   font-size: 3em;
   text-align: center;
   padding-bottom: 1vh;
+  line-height: 1em;
 }
 
 .button-container {

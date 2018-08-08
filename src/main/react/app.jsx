@@ -1,16 +1,14 @@
 import React from 'react';
 import Author from "./components/views/authorView";
-import SingleEntryView from "./components/views/singleEntryView";
 import SmallMultiEntryView from "./components/views/smallMultiEntryView";
 import LargeMultiEntryView from "./components/views/largeMultiEntryView";
+import InfiniteView from "./components/views/infiniteView";
 
 import EntryForm from './components/forms/entryForm';
-
-import WithHighlight from "./components/higherOrder/withHighlight";
 import WithColumns from "./components/higherOrder/withColumns";
 import EntryRepository from "./components/repositories/entryRepository";
 import {MuiThemeProvider} from "material-ui";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 
 export default class App extends React.Component {
 
@@ -23,10 +21,11 @@ export default class App extends React.Component {
 
     this.entryRepository = new EntryRepository();
     this.getSmallMultiEntry = this.getSmallMultiEntry.bind(this);
-    this.getSingleEntry = this.getSingleEntry.bind(this);
     this.getLargeMultiEntry = this.getLargeMultiEntry.bind(this);
     this.getEntryForm = this.getEntryForm.bind(this);
     this.updateBackgroundColor = this.updateBackgroundColor.bind(this);
+    this.getInfiniteView = this.getInfiniteView.bind(this);
+    this.getAuthor = this.getAuthor.bind(this);
   }
 
   componentWillMount() {
@@ -36,33 +35,34 @@ export default class App extends React.Component {
   }
 
   updateBackgroundColor(match, entry) {
-    if(entry && entry.colors) {
+    if (entry && entry.colors) {
       if (this.state.colors !== entry.colors) {
         this.setState({colors: entry.colors});
       }
     }
   }
 
-  getSingleEntry({match}) {
-    let selectedEntry = this.state.entries.filter(entry => entry.id.toString() === match.params.id)[0];
-    this.updateBackgroundColor(match, selectedEntry);
-
-    return <WithHighlight>
-      <SingleEntryView entry={selectedEntry || {id: "", text: ""}}
-                       totalEntryCount={this.state.entries.length}/>
-    </WithHighlight>;
-  };
-
   getSmallMultiEntry() {
-    return <SmallMultiEntryView {...this.state}/>;
+    return <WithColumns {...this.state}>
+      <SmallMultiEntryView {...this.state}/>
+    </WithColumns>;
   };
 
   getLargeMultiEntry() {
-    return <LargeMultiEntryView {...this.state}/>;
+    return <WithColumns {...this.state}>
+      <LargeMultiEntryView {...this.state}/>
+    </WithColumns>
   };
 
+  getInfiniteView(props) {
+    if (props.history.location.hash === "") window.scrollTo(0, 0);
+    return <InfiniteView allEntries={this.state.entries || []} hash={props.history.location.hash}/>;
+  }
+
   getAuthor() {
-    return <Author/>;
+    return <WithColumns {...this.state}>
+      <Author/>
+    </WithColumns>
   };
 
   getNextId() {
@@ -76,30 +76,24 @@ export default class App extends React.Component {
   }
 
   getEntryForm() {
-    return <EntryForm entryRepository={this.entryRepository}
-                      id={this.getNextId()}/>;
+    return <WithColumns {...this.state}>
+      <EntryForm entryRepository={this.entryRepository}
+                 id={this.getNextId()}/>
+    </WithColumns>;
   };
 
   render() {
     return <MuiThemeProvider>
       <BrowserRouter>
-        <WithColumns {...this.state}>
-          <div className="blog-inner-container">
-            <Route exact path="/" component={this.getSmallMultiEntry}/>
-            <Route path="/author" component={this.getAuthor}/>
-            <Route path="/blog" component={this.getLargeMultiEntry}/>
-
-            <Switch>
-              <Route exact path="/archive" component={this.getSmallMultiEntry}/>
-              <Route path="/archive/:id" component={this.getSingleEntry}/>
-            </Switch>
-
-            <Switch>
-              <Route path="/entries/new" component={this.getEntryForm}/>
-            </Switch>
-          </div>
-        </WithColumns>
+        <div className="blog-inner-container">
+          <Route exact path="/" component={this.getSmallMultiEntry}/>
+          <Route path="/author" component={this.getAuthor}/>
+          <Route path="/large-list" component={this.getLargeMultiEntry}/>
+          <Route path="/small-list" component={this.getSmallMultiEntry}/>
+          <Route exact path="/archive" component={this.getInfiniteView}/>
+          <Route path="/entries/new" component={this.getEntryForm}/>
+        </div>
       </BrowserRouter>
     </MuiThemeProvider>
   }
-}
+};

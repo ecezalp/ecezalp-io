@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
 export default function LargeMultiEntryView({entries}) {
 
@@ -12,7 +11,9 @@ export default function LargeMultiEntryView({entries}) {
       </div>);
   };
 
-  const getLinkDump = (entry) => <div className="entry-summary"><div className="summary-title">{entry.title}</div></div>;
+  const getLinkDump = (entry) => <div className="entry-summary">
+    <div className="summary-title">{entry.title}</div>
+  </div>;
 
   const getEntrySummary = (entry) => {
     return <div className="entry-summary">
@@ -22,9 +23,14 @@ export default function LargeMultiEntryView({entries}) {
     </div>
   };
 
-  const getEntry = (entry) => <Link className="eio-link" to={`/archive/${entry.id}`} key={`entry-${entry.id}`}>
-    {entry.isLinkDump ? getLinkDump(entry) : getEntrySummary(entry)}
-  </Link>;
+  const getEntry = (entry) => {
+    return <a className="eio-link"
+                 href={`/archive#${entry.title.split(" ").join("-").replace(/[^a-zA-Z0-9_-]/g, '').toLowerCase()}`}
+                 key={`entry-${entry.id}`}
+    >
+      {entry.isLinkDump ? getLinkDump(entry) : getEntrySummary(entry)}
+    </a>
+  };
 
   return <div className="blog-entry-container">
     {entries.map(getEntry)}

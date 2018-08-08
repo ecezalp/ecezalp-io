@@ -11,17 +11,17 @@ export default function WithColumns (props) {
   columnStyle.minWidth = "22.5%";
 
   if (props.colors && props.colors.length === 7) {
-    columnStyle.background = `linear-gradient(${props.colors[0]} 0%, ${props.colors[1]} 16%, ${props.colors[2]} 30%, ${props.colors[3]} 44%, ${props.colors[4]} 64%, ${props.colors[5]} 78%, ${props.colors[6]} 100%)`;
+    columnStyle.background = `linear-gradient(rgb(185, 237, 252) 0%, ${props.colors[0]} 5%, ${props.colors[1]} 18%, ${props.colors[2]} 30%, ${props.colors[3]} 43%, ${props.colors[4]} 56%, ${props.colors[5]} 69%, ${props.colors[6]} 82%, rgb(185, 237, 252) 100%)`;
   } else {
-    columnStyle.background = "linear-gradient(rgba(214, 197, 166, 1) 0%, rgba(249, 226, 185, 1) 16%, rgba(248, 245, 236, 1) 30%, rgba(247, 193, 185, 1) 44%, rgba(178, 212, 247, 1) 64%, rgba(249, 226, 185, 1) 78%, rgba(226, 122, 174, 1) 100%)";
+    columnStyle.background = "#B9DFF9";
   }
 
-  return <div className="main-container">
-      <div className="test-gradient" style={columnStyle}>
+  return <div className="main-container" key={`main-container-${props.index}`}>
+      <div className="test-gradient" style={columnStyle} key={`text-gradient-right-${props.index}`}>
         <MenuIcons entries={props.entries}/>
       </div>
       {props.children}
-      <div className="test-gradient" style={columnStyle}/>
+      <div className="test-gradient" style={columnStyle} key={`text-gradient-left-${props.index}`}/>
     </div>
 }
 
