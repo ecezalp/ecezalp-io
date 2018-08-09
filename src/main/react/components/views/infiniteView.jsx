@@ -36,7 +36,7 @@ export default class InfiniteView extends React.Component {
     const getPageNumber = ({title, id}) =>
       <a id={`#${title.split(" ").join("-").replace(/[^a-zA-Z0-9_-]/g, '').toLowerCase()}`}
          className="page-number">
-        {id}
+        <div className="circle"/>
       </a>;
 
     const getEntryTitle = ({title}) =>
@@ -56,13 +56,17 @@ export default class InfiniteView extends React.Component {
             <WithHighlight>
               {getHighlightedEntry(entry)}
             </WithHighlight>
-            {console.log("hi")}
           </div>
         </div>
       </WithColumns>;
 
+    const noEntriesYet = formatEntry({title: "", id: "1337"}, 1337);
+
+    const allEntries = this.props.entries.length === 0 ?
+      noEntriesYet : this.props.entries.map(formatEntry);
+
     return <div className="infinite-container" key="infinite-container">
-      {this.props.entries.map(formatEntry)}
+      {allEntries}
     </div>;
   }
 }

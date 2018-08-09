@@ -11,7 +11,8 @@ export default function SmallMultiEntryView({entries}) {
   const getEntry = (entry) => {
     return <div className="index-entry-link" key={`link-${entry.id}`}>
       {heart}
-      <Link className="eio-link" to={`/archive/${entry.id}`}>
+      <Link className="eio-link"
+            to={`/archive#${entry.title.split(" ").join("-").replace(/[^a-zA-Z0-9_-]/g, '').toLowerCase()}`}>
         <BlogEntry key={`entry-link-${entry.id}`} entry={entry.title}/>
       </Link>
     </div>

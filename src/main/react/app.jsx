@@ -51,9 +51,9 @@ export default function App() {
 
   const getEntryForm = () => {
     scrollUp();
-    return <WithColumns {...this.state}>
+    return <WithColumns>
       <WithEntries entryRepository={entryRepository}>
-        <EntryForm/>
+        <EntryForm entryRepository={entryRepository}/>
       </WithEntries>
     </WithColumns>
   };

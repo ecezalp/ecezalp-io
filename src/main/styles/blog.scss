@@ -36,10 +36,10 @@ $font_color: #010f5b;
 }
 
 .archive-container {
-  margin-top: 4em;
+  margin-top: 20vh;
   display: flex;
   flex-direction: column;
-  padding: 0 10%;
+  padding: 0 15%;
   width: 100%;
 }
 
@@ -58,7 +58,7 @@ $font_color: #010f5b;
   justify-content: center;
   background-color: #FAF8F1;
   color: $font_color;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: .01em;
@@ -67,6 +67,12 @@ $font_color: #010f5b;
   width: 55%;
   -webkit-font-smoothing: antialiased;
   width: 100%;
+}
+
+.with-entries-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .infinite-container {
@@ -79,7 +85,13 @@ $font_color: #010f5b;
 .page-number {
   display: block;
   height: 150px;
-  visibility: hidden;
+  padding-top: 10px;
+  text-align: center;
+
+  .circle:before {
+    content: ' \25C6';
+    font-size: 16px;
+  }
 }
 
 .solo-entry-container {
@@ -93,7 +105,7 @@ $font_color: #010f5b;
 }
 
 .blog-entry-container {
-  padding: 0 10%;
+  padding: 0 15%;
 }
 
 .eio-link {

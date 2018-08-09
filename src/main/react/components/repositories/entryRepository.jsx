@@ -10,4 +10,9 @@ export default class EntryRepository {
       console.error(error);
     });
   }
+
+  create(entry) {
+    let ref = firebase.database().ref('entries');
+    ref.push(entry);
+  }
 }

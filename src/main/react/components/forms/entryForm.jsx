@@ -22,15 +22,14 @@ export default class EntryForm extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.state.entry.id !== newProps.id) {
-      let entry = this.state.entry;
-      entry.id = newProps.id;
-      this.setState({entry});
-    }
+   let entry = this.state.entry;
+   let id = this.getNextId(newProps.entries);
+   entry["id"] = id;
+   this.setState(entry);
   }
 
-  getNextId() {
-    let currentId = this.state.entries.reduce((acc, entry) => {
+  getNextId(entries = this.props.entries) {
+    let currentId = entries.reduce((acc, entry) => {
       if (entry.id > acc) {
         acc = entry.id;
       }
@@ -173,7 +172,7 @@ export default class EntryForm extends React.Component {
 
   getEmptyEntry() {
     return Object.assign({}, {
-      id: 0,
+      id: this.getNextId(),
       title: "",
       shortText: "",
       tags: [],

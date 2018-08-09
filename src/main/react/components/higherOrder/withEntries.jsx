@@ -23,7 +23,7 @@ export default class WithEntries extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div className="with-entries-container">
       {this.renderChildrenWithProps()}
     </div>;
   }
