@@ -4,6 +4,8 @@ import BlogEntry from "../inputs/blogEntry";
 
 export default function SmallMultiEntryView({entries}) {
 
+  console.log(entries);
+
   const heart = <div className="heart"/>;
 
   const getEntry = (entry) => {

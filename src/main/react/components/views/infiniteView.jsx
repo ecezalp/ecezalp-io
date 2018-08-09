@@ -7,22 +7,15 @@ export default class InfiniteView extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      allEntries: [],
-      hash: "",
-    };
     this.scrollToElement = this.scrollToElement.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState({allEntries: newProps.allEntries}, () => {
-      console.log(this.state)
-    });
     this.scrollToElement(newProps);
   }
 
   scrollToElement({hash}) {
-    if (hash !== this.state.hash) {
+    if (hash !== "") {
       let retries = 0;
       const scroll = () => {
         retries += 0;
@@ -40,9 +33,6 @@ export default class InfiniteView extends React.Component {
 
 
   render() {
-    let allEntries = this.state.allEntries || [];
-    console.log(allEntries);
-
     const getPageNumber = ({title, id}) =>
       <a id={`#${title.split(" ").join("-").replace(/[^a-zA-Z0-9_-]/g, '').toLowerCase()}`}
          className="page-number">
@@ -58,7 +48,7 @@ export default class InfiniteView extends React.Component {
       <BlogEntry entry={text}/>;
 
     const formatEntry = (entry, index) =>
-      <WithColumns colors={entry.colors} entries={allEntries} index={index}>
+      <WithColumns colors={entry.colors} entries={this.props.entries} index={index}>
         <div className="solo-entry-container" key={`solo-entry-${index}`}>
           <div className="solo-text-container" key={`solo-text-${index}`}>
             {getPageNumber(entry)}
@@ -72,7 +62,7 @@ export default class InfiniteView extends React.Component {
       </WithColumns>;
 
     return <div className="infinite-container" key="infinite-container">
-      {allEntries.map(formatEntry)}
+      {this.props.entries.map(formatEntry)}
     </div>;
   }
 }

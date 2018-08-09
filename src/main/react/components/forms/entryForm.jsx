@@ -29,6 +29,15 @@ export default class EntryForm extends React.Component {
     }
   }
 
+  getNextId() {
+    let currentId = this.state.entries.reduce((acc, entry) => {
+      if (entry.id > acc) {
+        acc = entry.id;
+      }
+      return acc;
+    }, 0);
+    return currentId + 1;
+  }
 
   getTextFieldStyles() {
     return {

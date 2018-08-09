@@ -17,11 +17,11 @@ export default function WithColumns (props) {
   }
 
   return <div className="main-container" key={`main-container-${props.index}`}>
-      <div className="test-gradient" style={columnStyle} key={`text-gradient-right-${props.index}`}>
-        <MenuIcons entries={props.entries}/>
+      <div className="gradient" style={columnStyle} key={`text-gradient-right-${props.index}`}>
+        <MenuIcons/>
       </div>
       {props.children}
-      <div className="test-gradient" style={columnStyle} key={`text-gradient-left-${props.index}`}/>
+      <div className="gradient" style={columnStyle} key={`text-gradient-left-${props.index}`}/>
     </div>
 }
 

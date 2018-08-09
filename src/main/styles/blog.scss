@@ -39,7 +39,8 @@ $font_color: #010f5b;
   margin-top: 4em;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  padding: 0 10%;
+  width: 100%;
 }
 
 .index-entry-link {
@@ -92,7 +93,7 @@ $font_color: #010f5b;
 }
 
 .blog-entry-container {
-  width: 50%;
+  padding: 0 10%;
 }
 
 .eio-link {
