@@ -4,9 +4,7 @@ import BlogEntry from "../inputs/blogEntry";
 
 export default function SmallMultiEntryView({entries}) {
 
-  console.log(entries);
-
-  const heart = <div className="heart"/>;
+const heart = <div className="heart"/>;
 
   const getEntry = (entry) => {
     return <div className="index-entry-link" key={`link-${entry.id}`}>

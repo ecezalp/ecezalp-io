@@ -49,8 +49,8 @@ export default class InfiniteView extends React.Component {
 
     const formatEntry = (entry, index) =>
       <WithColumns colors={entry.colors} entries={this.props.entries} index={index}>
-        <div className="solo-entry-container" key={`solo-entry-${index}`}>
-          <div className="solo-text-container" key={`solo-text-${index}`}>
+        <div className="solo-entry-container" key={`solo-entry-${index}-${entry.id}`}>
+          <div className="solo-text-container" key={`solo-text-${index}-${entry.id}`}>
             {getPageNumber(entry)}
             {getEntryTitle(entry)}
             <WithHighlight>

@@ -5,6 +5,8 @@ import {blue600, orange600} from 'material-ui/styles/colors';
 import {ChromePicker} from 'react-color';
 import PropTypes from 'prop-types';
 
+import formPassword from "../../../secrets/password";
+
 export default class EntryForm extends React.Component {
 
   constructor(props) {
@@ -158,7 +160,7 @@ export default class EntryForm extends React.Component {
   }
 
   getSubmitButton() {
-    if (this.state.password === "not-implemented-yet") {
+    if (this.state.password === formPassword) {
       return <div className="submit-button">
         <i className="material-icons" onClick={this.handleSubmit}>send</i>
       </div>

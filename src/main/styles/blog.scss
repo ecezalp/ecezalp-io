@@ -191,6 +191,12 @@ $font_color: #010f5b;
   font-weight: bold;
 }
 
+.summary-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .entry-summary {
   margin: 50px 0;
 }
@@ -365,4 +371,8 @@ h1 {
 
 body {
   margin: 0;
+}
+
+h2 {
+  text-align: center;
 }

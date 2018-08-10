@@ -27,7 +27,6 @@ export default function AuthorView() {
 
   const title = <div className="title-container">
     <div className="title-name">Ece Özalp</div>
-    <div className="title-title">Full Stack Web Developer</div>
   </div>;
 
   const email = <div className="admin">admin@ecezalp.io</div>;
