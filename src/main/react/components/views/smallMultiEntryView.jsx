@@ -1,18 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import BlogEntry from "../inputs/blogEntry";
 
 export default function SmallMultiEntryView({entries}) {
 
-const heart = <div className="heart"/>;
-
   const getEntry = (entry) => {
     return <div className="index-entry-link" key={`link-${entry.id}`}>
-      {heart}
-      <Link className="eio-link"
+      <Link className="eio-link title-hashlink"
             to={`/archive#${entry.title.split(" ").join("-").replace(/[^a-zA-Z0-9_-]/g, '').toLowerCase()}`}>
-        <BlogEntry key={`entry-link-${entry.id}`} entry={entry.title}/>
+        {entry.title}
       </Link>
+      <div className="summary-tags">{entry.tags && entry.tags.replace(",", ", ")}</div>
     </div>
   };
 

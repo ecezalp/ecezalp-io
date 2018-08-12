@@ -1,4 +1,5 @@
 $font_color: #010f5b;
+$alternate_bg_color: aliceblue;
 
 .icon-container {
   cursor: pointer;
@@ -26,7 +27,7 @@ $font_color: #010f5b;
 }
 
 .main-container {
-  background-color: #F9F5EB;
+  background-color: #fffdf9;
   display: flex;
   font-size: 1.1em;
   letter-spacing: .01em;
@@ -35,8 +36,9 @@ $font_color: #010f5b;
   width: 100%;
 }
 
+
 .archive-container {
-  margin-top: 20vh;
+  margin-top: 10vh;
   display: flex;
   flex-direction: column;
   padding: 0 15%;
@@ -44,9 +46,9 @@ $font_color: #010f5b;
 }
 
 .index-entry-link {
-  align-items: center;
   display: flex;
-  padding: 10px 0;
+  flex-direction: column;
+  padding: 30px 0;
 }
 
 .submit-button {
@@ -56,14 +58,13 @@ $font_color: #010f5b;
 .blog-inner-container {
   display: flex;
   justify-content: center;
-  background-color: #FAF8F1;
+  background-color: #fffdf9;
   color: $font_color;
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: .01em;
   line-height: 1.5;
-  text-align: justify;
   width: 55%;
   -webkit-font-smoothing: antialiased;
   width: 100%;
@@ -84,14 +85,9 @@ $font_color: #010f5b;
 
 .page-number {
   display: block;
-  height: 150px;
-  padding-top: 10px;
+  height: 170px;
+  padding-top: 5px;
   text-align: center;
-
-  .circle:before {
-    content: ' \25C6';
-    font-size: 16px;
-  }
 }
 
 .solo-entry-container {
@@ -111,6 +107,23 @@ $font_color: #010f5b;
 .eio-link {
   color: $font_color;
   text-decoration: none;
+}
+
+.entry-sum-container {
+  height: 60vh;
+}
+
+.large-entry-container {
+  $alternate_bg_color: aliceblue;
+}
+
+.title-hashlink {
+  font-size: 1.6em;
+}
+
+.title-hashlink:hover {
+  color: blue;
+  text-decoration: underline;
 }
 
 .author-container {
@@ -188,7 +201,14 @@ $font_color: #010f5b;
 // blog
 
 .summary-title {
-  font-weight: bold;
+  font-size: 2.5rem;
+  text-align: start;
+  line-height: normal;
+}
+
+.summary-title:hover {
+  color: blue;
+  text-decoration: underline;
 }
 
 .summary-links {
@@ -198,7 +218,11 @@ $font_color: #010f5b;
 }
 
 .entry-summary {
-  margin: 50px 0;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10vw;
 }
 
 .summary-text {
@@ -207,10 +231,14 @@ $font_color: #010f5b;
   text-overflow: ellipsis;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+  padding-bottom: 10px;
 }
 
 .summary-tags {
+  padding-bottom: 40px;
   display: flex;
+  color: lightseagreen;
+  font-size: 1.5rem;
 }
 
 .arrow-container {
@@ -218,10 +246,8 @@ $font_color: #010f5b;
 }
 
 .tag-container {
-  background-color: #F4DCD4;
-  border-radius: 5%;
   margin: 3px 5px 3px 0;
-  padding: 0 10px;
+  padding-right: 10px;
 }
 
 .tag-text {
