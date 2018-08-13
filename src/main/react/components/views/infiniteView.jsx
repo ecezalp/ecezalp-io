@@ -2,6 +2,7 @@ import React from 'react';
 import BlogEntry from "../inputs/blogEntry";
 import WithColumns from "../higherOrder/withColumns";
 import WithHighlight from "../higherOrder/withHighlight";
+import LoadingCube from "../inputs/loadingCube";
 
 export default class InfiniteView extends React.Component {
 
@@ -31,7 +32,6 @@ export default class InfiniteView extends React.Component {
     }
   }
 
-
   render() {
     const getPageNumber = ({title, id}) =>
       <a id={`#${title.split(" ").join("-").replace(/[^a-zA-Z0-9_-]/g, '').toLowerCase()}`}
@@ -60,10 +60,13 @@ export default class InfiniteView extends React.Component {
         </div>
       </WithColumns>;
 
-    const noEntriesYet = formatEntry({title: "", id: "1337"}, 1337);
+    const noEntriesYet = <WithColumns>
+      <LoadingCube/>
+    </WithColumns>;
 
     const allEntries = this.props.entries.length === 0 ?
-      noEntriesYet : this.props.entries.map(formatEntry);
+      noEntriesYet :
+      this.props.entries.map(formatEntry);
 
     return <div className="infinite-container" key="infinite-container">
       {allEntries}
