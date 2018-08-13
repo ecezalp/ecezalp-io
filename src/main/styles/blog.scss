@@ -31,11 +31,10 @@ $alternate_bg_color: aliceblue;
   display: flex;
   font-size: 1.1em;
   letter-spacing: .01em;
-  line-height: 1.60em;
+  line-height: 2em;
   max-width: 100%;
   width: 100%;
 }
-
 
 .archive-container {
   margin-top: 10vh;
@@ -48,7 +47,7 @@ $alternate_bg_color: aliceblue;
 .index-entry-link {
   display: flex;
   flex-direction: column;
-  padding: 30px 0;
+  padding: 15px 0;
 }
 
 .submit-button {
@@ -60,9 +59,9 @@ $alternate_bg_color: aliceblue;
   justify-content: center;
   background-color: #fffdf9;
   color: $font_color;
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-family: "IBM Plex Serif", Helvetica, Arial, sans-serif;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: .01em;
   line-height: 1.5;
   width: 55%;
@@ -118,7 +117,9 @@ $alternate_bg_color: aliceblue;
 }
 
 .title-hashlink {
-  font-size: 1.6em;
+  font-size: 1.4rem;
+  line-height: normal;
+  font-weight: bold;
 }
 
 .title-hashlink:hover {
@@ -152,9 +153,10 @@ $alternate_bg_color: aliceblue;
 }
 
 .title-name {
-  font-family: "Yanone Kaffeesatz";
-  font-size: 2em;
-  padding-bottom: 1vh;
+  font-family: "IBM Plex Sans", Helvetica;
+  font-weight: 600;
+  font-size: 3em;
+  padding: 3vh 0;
 }
 
 .title-title {
@@ -185,7 +187,7 @@ $alternate_bg_color: aliceblue;
 .line-item {
   color: $font_color;
   display: flex;
-  font-family: "Space Mono";
+  font-size: 1em;
   padding: 0 0.5em;
 }
 
@@ -201,9 +203,12 @@ $alternate_bg_color: aliceblue;
 // blog
 
 .summary-title {
-  font-size: 2.5rem;
+  font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
+  padding-bottom: 40px;
+  font-size: 3rem;
   text-align: start;
   line-height: normal;
+  font-weight: bold;
 }
 
 .summary-title:hover {
@@ -218,7 +223,7 @@ $alternate_bg_color: aliceblue;
 }
 
 .entry-summary {
-  height: 80vh;
+  height: 88vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -232,13 +237,22 @@ $alternate_bg_color: aliceblue;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   padding-bottom: 10px;
+  font-weight: 400;
+  font-size: 1.15rem;
 }
 
 .summary-tags {
   padding-bottom: 40px;
   display: flex;
-  color: lightseagreen;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.small-list-tags {
+  padding-bottom: 30px;
+  display: flex;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
 }
 
 .arrow-container {
@@ -255,11 +269,12 @@ $alternate_bg_color: aliceblue;
 }
 
 .title-entry {
-  font-family: "Yanone Kaffeesatz";
-  font-size: 3em;
-  text-align: center;
-  padding-bottom: 1vh;
-  line-height: 1em;
+  font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
+  padding-bottom: 40px;
+  font-size: 3.5rem;
+  text-align: start;
+  line-height: normal;
+  font-weight: bold;
 }
 
 .button-container {
@@ -299,7 +314,7 @@ eio-field-input {
   align-items: center;
 }
 
-.body-container textarea, .text-container textarea{
+.body-container textarea, .text-container textarea {
   margin-top: 5px;
   height: 6em;
 }
@@ -359,7 +374,7 @@ eio-field-input {
 }
 
 textarea:focus {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.05), 0 10px 10px rgba(0,0,0,0.02) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.02) !important;
   border: none;
   overflow: auto;
   outline: none;
