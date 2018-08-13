@@ -1,0 +1,59 @@
+.title-entry {
+  font-family: "IBM Plex Sans", Helvetica, Arial, sans-serif;
+  padding: 0 15% 40px 15%;
+  font-size: 3.5rem;
+  text-align: start;
+  line-height: normal;
+  font-weight: bold;
+}
+
+.solo-text-container {
+  h1, h2, h3, h4, h5, h6, ol, p {
+    padding-left: 15%;
+    padding-right: 10%;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  pre {
+    width: 100%;
+  }
+}
+
+code {
+  font-size: 15px !important;
+  letter-spacing: .01em;
+  line-height: 1.30em !important;
+  text-align: start !important;
+  padding: 15% !important;
+}
+
+p, pre {
+  margin: 1em 0;
+}
+
+pre {
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  -moz-tab-size: 2; /* Firefox */
+  tab-size: 2;
+}
+
+h1 {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+}
