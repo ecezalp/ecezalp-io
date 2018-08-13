@@ -2,7 +2,7 @@ import React from 'react';
 import BlogEntry from "../inputs/blogEntry";
 import WithColumns from "../higherOrder/withColumns";
 import WithHighlight from "../higherOrder/withHighlight";
-import LoadingCube from "../inputs/loadingCube";
+import LandingView from "./landingView";
 
 export default class InfiniteView extends React.Component {
 
@@ -61,7 +61,7 @@ export default class InfiniteView extends React.Component {
       </WithColumns>;
 
     const noEntriesYet = <WithColumns>
-      <LoadingCube/>
+      <LandingView isTextVisible={false}/>
     </WithColumns>;
 
     const allEntries = this.props.entries.length === 0 ?

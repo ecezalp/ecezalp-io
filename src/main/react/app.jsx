@@ -1,8 +1,8 @@
 import React from 'react';
 import Author from "./components/views/authorView";
 import SmallMultiEntryView from "./components/views/smallMultiEntryView";
-import LargeMultiEntryView from "./components/views/largeMultiEntryView";
 import InfiniteView from "./components/views/infiniteView";
+import LandingView from "./components/views/landingView";
 
 import EntryForm from './components/forms/entryForm';
 import WithColumns from "./components/higherOrder/withColumns";
@@ -26,15 +26,6 @@ export default function App() {
     </WithColumns>;
   };
 
-  const getLargeMultiEntry = () => {
-    scrollUp();
-    return <WithColumns>
-      <WithEntries entryRepository={entryRepository}>
-        <LargeMultiEntryView/>
-      </WithEntries>
-    </WithColumns>
-  };
-
   const getInfiniteView = (props) => {
     if (props.history.location.hash === "") scrollUp();
     return <WithEntries entryRepository={entryRepository}>
@@ -46,6 +37,13 @@ export default function App() {
     scrollUp();
     return <WithColumns>
       <Author/>
+    </WithColumns>
+  };
+
+  const getLandingView = () => {
+    scrollUp();
+    return <WithColumns>
+      <LandingView isTextVisible={true}/>
     </WithColumns>
   };
 
@@ -61,9 +59,8 @@ export default function App() {
   return <MuiThemeProvider>
     <BrowserRouter>
       <div className="blog-inner-container">
-        <Route exact path="/" component={getSmallMultiEntry}/>
+        <Route exact path="/" component={getLandingView}/>
         <Route path="/author" component={getAuthor}/>
-        <Route path="/large-list" component={getLargeMultiEntry}/>
         <Route path="/small-list" component={getSmallMultiEntry}/>
         <Route exact path="/archive" component={getInfiniteView}/>
         <Route path="/entries/new" component={getEntryForm}/>

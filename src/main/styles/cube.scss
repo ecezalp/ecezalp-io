@@ -1,12 +1,9 @@
+
+
 figure {
   width: 210px;
   height: 210px;
   animation: rotation 7s linear infinite;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -105px;
-  margin-left: -105px;
   transform-style: preserve-3d;
 }
 
@@ -18,7 +15,7 @@ figure {
 }
 
 .face div {
-  border: 7px double $font_color;;
+  border: 5px double black;
   width: 70px;
   height: 70px;
   display: inline-block;
@@ -27,26 +24,32 @@ figure {
 }
 
 .front {
+  background-color: rgba(0,0,255, 0.5);
   transform: translate3d(0,0,105px);
 }
 
 .back {
+  background-color: rgba(0,0,255, 0.5);
   transform: rotateY(180deg) translate3d(0,0,105px);
 }
 
 .left {
+  background-color: rgba(255,0,0, 0.5);
   transform: rotateY(-90deg) translate3d(0,0,105px);
 }
 
 .right {
+  background-color: rgba(255,0,0, 0.5);
   transform: rotateY(90deg) translate3d(0,0,105px);
 }
 
 .top {
+  background-color: rgba(0,255,0, 0.5);
   transform: rotateX(90deg) translate3d(0,0,105px);
 }
 
 .bottom {
+  background-color: rgba(0,255,0, 0.5);
   transform: rotateX(-90deg) translate3d(0,0,105px);
 }
 

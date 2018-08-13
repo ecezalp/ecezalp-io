@@ -22,9 +22,9 @@ export default function LoadingCube() {
 
   const sides = ["front", "top", "right", "left", "bottom", "back"];
 
-  return <div className="solo-entry-container">
-    <figure>
+  const cube = <figure>
     {sides.map(getFace)}
-  </figure>
-  </div>
+  </figure>;
+
+  return cube;
 }
