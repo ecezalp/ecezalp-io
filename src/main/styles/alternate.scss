@@ -1,0 +1,183 @@
+$beige: rgb(245, 243, 234);
+
+.alternate-view-container {
+  background-color: $beige;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+  .right-page, .left-page {
+    width: 40%;
+    height: 100%;
+    //background-color: lightblue;
+
+    min-width: 580px;
+  }
+
+  .right-page {
+    .grid {
+      display: grid;
+      grid-row-gap: 1vh;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      width: 100%;
+      height: 100%;
+
+      .header {
+        background-color: black;
+        color: #f5f3ea !important;
+        grid-area: 1/4/4/7;
+        z-index: 5;
+        font-weight: 300;
+        line-height: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-transform: uppercase;
+        padding: 2vh 1vh;
+
+        .large {
+          font-size: 15vh;
+          font-family: "BenchNine";
+        }
+
+        .small, .pull-left {
+          font-size: 5vh;
+          font-family: "Catamaran";
+        }
+
+        .pull-left {
+          align-self: flex-end;
+        }
+      }
+
+      .ad, .vent, .ures {
+        font-size: 42vh;
+        line-height: 0;
+        font-family: "Impact";
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-top: 15vh;
+        color: rgb(220, 80, 37);
+        letter-spacing: -1.5vw;
+      }
+
+      .ad {grid-area: 1/1/1/5;}
+
+      .vent {grid-area: 3/1/3/7;}
+
+      .ures {grid-area: 5/1/5/7;}
+
+      .footer {
+        background-color: black;
+        color: #f5f3ea !important;
+        grid-area: 6/1/6/7;
+        z-index: 5;
+        font-weight: 300;
+        line-height: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        text-transform: uppercase;
+        padding: 2vh 1vh;
+        height: 50%;
+
+        .line1, .line2 {
+          font-size: 3.5vh;
+          font-family: "Catamaran";
+        }
+      }
+    }
+  }
+
+  .left-page {
+
+    .grid {
+      display: grid;
+      width: 100%;
+      height: 100%;
+      grid-template-rows: 1fr 1fr 1fr 0.3fr 1.5fr 0.3fr 1fr 1fr 0.5fr 1fr 0.3fr 1fr 0.5fr 0.3fr 1fr 1fr;
+      grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1fr 1fr 1fr 0.5fr 1fr 0.5fr 1fr 0.3fr;
+
+      b {
+        background-color: black;
+      }
+
+      b.one {grid-area: 1/1/17/1;}
+      b.two {grid-area: 1/3/1/11;}
+      b.three {grid-area: 2/3/2/7;}
+      b.four {grid-area: 3/3/3/5;}
+      b.five {grid-area: 1/13/17/13;}
+      b.six {grid-area: 1/12/4/12;}
+      b.seven {grid-area: 3/11/4/11;}
+      b.eight {grid-area: 4/8/4/10;}
+      b.nine {grid-area: 5/7/5/10;}
+      b.ten {grid-area: 6/7/6/13;}
+      b.eleven {grid-area: 7/9/7/13;}
+      b.twelve {grid-area: 8/12/8/13;}
+      b.thirteen {grid-area: 8/3/12/5;}
+      b.fourteen {grid-area: 10/3/12/7;}
+      b.fifteen {grid-area: 11/7/13/9;}
+      b.sixteen {grid-area: 13/7/14/8;}
+      b.seventeen {grid-area: 13/11/17/13;}
+      b.eighteen {grid-area: 16/7/17/13;}
+      b.nineteen {grid-area: 13/3/15/5;}
+      b.twenty {grid-area: 13/3/17/4;}
+
+      div {
+        color: #dc5025;
+        font-weight: bold;
+        font-size: 9vh;
+        line-height: 0.7 !important;
+        font-family: "Jomhuria";
+        text-transform: uppercase;
+      }
+
+      div.one {
+        grid-area: 2/7/2/12;
+        flex-direction: column;
+        justify-content: flex-end;
+        line-height: 0.7;
+        display: flex;
+        align-items: center;
+      }
+
+      div.two {
+        grid-area: 3/5/3/11;
+        flex-direction: column;
+        justify-content: flex-start;
+        line-height: 1;
+        align-items: center;
+        display: flex;
+      }
+
+      div.three {
+        grid-area: 5/3/5/7;
+        line-height: 1;
+        display: flex;
+        text-align: right;
+        padding-right: 10px;
+        align-items: flex-end;
+      }
+
+      div.four{
+        padding-right: 10px;
+        grid-area: 7/2/8/9;
+        text-align: right;
+      }
+
+      div.five{
+        padding-right: 10px;
+        grid-area: 8/5/10/12;
+        text-align: right;
+        line-height: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+    }
+  }
+}

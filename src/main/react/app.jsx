@@ -3,6 +3,7 @@ import Author from "./components/views/authorView";
 import SmallMultiEntryView from "./components/views/smallMultiEntryView";
 import InfiniteView from "./components/views/infiniteView";
 import LandingView from "./components/views/landingView";
+import AlternateView from "./components/views/alternateView";
 
 import EntryForm from './components/forms/entryForm';
 import WithColumns from "./components/higherOrder/withColumns";
@@ -56,6 +57,10 @@ export default function App() {
     </WithColumns>
   };
 
+  const getAlternate = () => {
+    return <AlternateView/>;
+  };
+
   return <MuiThemeProvider>
     <BrowserRouter>
       <div className="blog-inner-container">
@@ -64,6 +69,7 @@ export default function App() {
         <Route path="/small-list" component={getSmallMultiEntry}/>
         <Route exact path="/archive" component={getInfiniteView}/>
         <Route path="/entries/new" component={getEntryForm}/>
+        <Route path="/alternate" component={getAlternate}/>
       </div>
     </BrowserRouter>
   </MuiThemeProvider>;
