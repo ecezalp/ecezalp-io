@@ -1,0 +1,148 @@
+$dark_green: rgb(44, 51, 32);
+$purple: rgb(113, 57, 72);
+$yellow: rgb(239, 229, 78);
+$orange: rgb(205, 88, 41);
+$red: rgb(189, 42, 24);
+$blue: rgb(79, 111, 123);
+$brown: rgb(111, 72, 54);
+$dark_red: rgb(139, 41, 27);
+
+.roesch-container {
+  height: 100%;
+  width: 100%;
+
+  .grid {
+    background-color: rgb(150, 170, 102);
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-rows: 1fr 1fr 1.5fr 1.5fr 1fr 1fr 1fr 4fr 1fr 4fr 8fr 3fr 1fr 2fr 2fr 1.5fr 1.5fr 0.5fr 1fr 0.5fr 1fr 1fr 0.5fr;
+    grid-template-columns: 10vw 1fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.7fr 2.3fr 1.5fr 40vw 2fr 1.5fr 2fr 0.5fr 1fr 0.5fr 1fr 10vw;
+  }
+
+  .dark-green-1 {grid-area: 1/1/5/10;}
+  .dark-green-2 {grid-area: 1/13/3/20;}
+  .dark-green-3 {grid-area: 20/1/24/10;}
+  .dark-green-4 {grid-area: 17/13/24/20;}
+
+  .purple-1 {grid-area: 18/1/20/10;}
+  .purple-2 {grid-area: 3/13/4/20;}
+
+  .yellow-1 {grid-area: 3/2/3/11;}
+  .yellow-2 {grid-area: 4/13/5/20;}
+  .yellow-3 {grid-area: 17/1/18/10;}
+  .yellow-4 {grid-area: 18/12/21/20;}
+
+  .black-1 {grid-area: 2/1/2/11;}
+  .black-2 {grid-area: 4/2/4/3;}
+  .black-3 {grid-area: 1/6/8/7;}
+  .black-4 {grid-area: 16/2/18/3;}
+  .black-5 {grid-area: 20/3/23/5;}
+  .black-6 {grid-area: 1/17/4/18;}
+  .black-7 {grid-area: 4/18/6/19;}
+  .black-8 {grid-area: 21/12/22/20;}
+  .black-9 {grid-area: 22/15/24/16; z-index: 6;}
+  .black-10 {grid-area: 16/15/18/16;}
+  .black-11 {grid-area: 17/18/18/19;}
+
+  .orange-1 {grid-area:3/1/3/2;}
+  .orange-2 {grid-area:1/7/1/9;}
+  .orange-3 {grid-area:20/5/23/6;}
+  .orange-4 {grid-area:14/14/18/15;}
+  .orange-5 {grid-area:22/16/24/17;}
+  .orange-6 {grid-area:1/16/4/17;}
+
+  .red-1 {grid-area: 1/4/4/6;}
+  .red-2 {grid-area: 1/4/4/6;}
+  .red-3 {grid-area: 1/4/4/6;}
+  .red-4 {grid-area: 18/14/22/15;}
+  .red-5 {grid-area: 22/16/23/17;}
+
+  .brown-1 {grid-area: 4/4/8/6;}
+  .brown-2 {grid-area: 4/7/7/9;}
+  .brown-3 {grid-area: 23/14/24/15;}
+  .brown-4 {grid-area: 12/16/22/17;}
+
+  .blue-1 {grid-area: 5/1/6/10;}
+  .blue-2 {grid-area: 6/2/13/2;}
+  .blue-3 {grid-area: 14/2/24/2; z-index: 2;}
+  .blue-4 {grid-area: 16/1/18/10;}
+  .blue-5 {grid-area: 5/13/6/20;}
+  .blue-6 {grid-area: 1/18/9/19; z-index: 2;}
+  .blue-7 {grid-area: 10/18/17/19;}
+  .blue-8 {grid-area: 16/13/17/20;}
+
+  .dark-red-1 {grid-area: 22/12/23/20;}
+
+  .resize {grid-area: 20/10/24/12}
+  .links {grid-area: 18/10/20/12;}
+
+  .dark-red-1 {
+    background-color: $dark_red;
+    z-index: 3;
+  }
+
+  .dark-green-1, .dark-green-2, .dark-green-3, .dark-green-4 {
+    background-color: $dark_green;
+    z-index: 1;
+  }
+
+  .purple-1, .purple-2 {
+    background-color: $purple;
+    z-index: 1;
+  }
+
+  .yellow-1, .yellow-2, .yellow-3, .yellow-4 {
+    background-color: $yellow;
+    z-index: 3;
+  }
+
+  .black-1, .black-2, .black-3, .black-4, .black-5, .black-6, .black-7, .black-8, .black-9, .black-10, .black-11 {
+    background-color: black;
+  }
+
+  .black-1, .black-2, .black-3 {
+    z-index: 2;
+  }
+
+  .black-4, .black-5, .black-6, .black-7, .black-8, .black-10, .black-11 {
+    z-index: 3;
+  }
+
+  .orange-1, .orange-2, .orange-3, .orange-4, .orange-5, .orange-6 {
+    background-color: $orange;
+    z-index: 4;
+  }
+
+  .red-1, .red-2, .red-3, .red-4, .red-5{
+    background-color: $red;
+    z-index: 4;
+  }
+
+  .brown-1, .brown-2, .brown-3, .brown-4 {
+    background-color: $brown;
+    z-index: 4;
+  }
+
+  .blue-1, .blue-2, .blue-3, .blue-4, .blue-5, .blue-6, .blue-7, .blue-8 {
+    background-color: $blue;
+  }
+
+  .resize {
+    text-transform: uppercase;
+    color: black;
+    font-size: calc(1vh + 2vw);
+    padding-left: 1vw;
+    white-space: nowrap;
+  }
+
+  .home-link, .next-link {
+    font-weight: 700;
+    color: blue;
+    text-decoration: underline;
+    font-family: "IBM Plex Serif", Helvetica, Arial, sans-serif;
+    padding: 0 1vw;
+    -webkit-font-smoothing: antialiased;
+  }
+
+}

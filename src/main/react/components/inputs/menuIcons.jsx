@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 export default function MenuIcons() {
 
   const pages = [
+    {title: "gallery", to: "/gallery/1"},
     {title: "archive", to: "/small-list"},
     {title: "blog", to: `/archive`},
     {title: "author", to: "/author"},

@@ -3,7 +3,7 @@ import Author from "./components/views/authorView";
 import SmallMultiEntryView from "./components/views/smallMultiEntryView";
 import InfiniteView from "./components/views/infiniteView";
 import LandingView from "./components/views/landingView";
-import AlternateView from "./components/views/alternateView";
+import Gallery from "./components/views/gallery/index";
 
 import EntryForm from './components/forms/entryForm';
 import WithColumns from "./components/higherOrder/withColumns";
@@ -57,8 +57,8 @@ export default function App() {
     </WithColumns>
   };
 
-  const getAlternate = () => {
-    return <AlternateView/>;
+  const getGallery = (props) => {
+    return <Gallery id={props.match.params.id}/>;
   };
 
   return <MuiThemeProvider>
@@ -69,7 +69,7 @@ export default function App() {
         <Route path="/small-list" component={getSmallMultiEntry}/>
         <Route exact path="/archive" component={getInfiniteView}/>
         <Route path="/entries/new" component={getEntryForm}/>
-        <Route path="/alternate" component={getAlternate}/>
+        <Route path="/gallery/:id" component={getGallery}/>
       </div>
     </BrowserRouter>
   </MuiThemeProvider>;

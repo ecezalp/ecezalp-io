@@ -6,6 +6,16 @@ $beige: rgb(245, 243, 234);
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  -webkit-font-smoothing: antialiased;
+
+  .home-link, .next-link {
+    font-weight: 700;
+    color: blue;
+    text-decoration: underline;
+    font-family: "IBM Plex Serif", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+  }
 
   .right-page, .left-page {
     width: 40%;
@@ -123,8 +133,8 @@ $beige: rgb(245, 243, 234);
       b.sixteen {grid-area: 13/7/14/8;}
       b.seventeen {grid-area: 13/11/17/13;}
       b.eighteen {grid-area: 16/7/17/13;}
-      b.nineteen {grid-area: 13/3/15/5;}
-      b.twenty {grid-area: 13/3/17/4;}
+      b.nineteen {grid-area: 14/3/16/5;}
+      b.twenty {grid-area: 14/3/16/5;}
 
       div {
         color: #dc5025;
@@ -133,49 +143,97 @@ $beige: rgb(245, 243, 234);
         line-height: 0.7 !important;
         font-family: "Jomhuria";
         text-transform: uppercase;
+        letter-spacing: 1px;
       }
 
       div.one {
         grid-area: 2/7/2/12;
-        flex-direction: column;
-        justify-content: flex-end;
-        line-height: 0.7;
+        line-height: 0.5 !important;
         display: flex;
-        align-items: center;
+        font-size: 12vh;
+        vertical-align: bottom;
+        justify-content: center;
+        padding-top: 3vh;
       }
 
       div.two {
         grid-area: 3/5/3/11;
-        flex-direction: column;
-        justify-content: flex-start;
-        line-height: 1;
-        align-items: center;
-        display: flex;
+        font-size: 11vh;
       }
 
       div.three {
-        grid-area: 5/3/5/7;
-        line-height: 1;
+        grid-area: 5/3/7/7;
         display: flex;
         text-align: right;
-        padding-right: 10px;
-        align-items: flex-end;
+        padding-right: 0.5vw;
+        align-items: center;
+        font-size: 10vh;
+        line-height: 0.5 !important;
       }
 
       div.four{
-        padding-right: 10px;
+        padding-top: 1vh;
+        padding-right: 0.5vw;
         grid-area: 7/2/8/9;
         text-align: right;
+        font-size: 11.5vh;
       }
 
       div.five{
-        padding-right: 10px;
+        padding-right: 0.5vw;
         grid-area: 8/5/10/12;
         text-align: right;
         line-height: 1;
         display: flex;
         justify-content: center;
         align-items: center;
+        line-height: 0.5 !important;
+      }
+
+      div.six{
+        padding-right: 0.5vw;
+        grid-area: 10/7/11/17;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      div.seven {
+        padding-top: 1.5vh;
+        padding-right: 0.1vw;
+        grid-area: 11/9/13/13;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: right;
+        font-size: 10vh;
+        line-height: 0.5 !important;
+      }
+
+      div.eight {
+        text-align: center;
+        grid-area: 13/8/14/11;
+        margin-bottom: -2vh;
+      }
+
+      div.nine {
+        grid-area: 14/5/16/11;
+        font-size: 11vh;
+      }
+
+      .next-link {
+        grid-area: 5/10/5/13;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 3vh;
+      }
+
+      .home-link {
+        grid-area: 12/3/14/7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
     }
