@@ -1,18 +1,20 @@
-$dark_green: rgb(44, 51, 32);
-$purple: rgb(113, 57, 72);
-$yellow: rgb(239, 229, 78);
-$orange: rgb(205, 88, 41);
-$red: rgb(189, 42, 24);
-$blue: rgb(79, 111, 123);
-$brown: rgb(111, 72, 54);
-$dark_red: rgb(139, 41, 27);
+
+//$background_color: rgb(150, 170, 102);
+//$dark_green: rgb(44, 51, 32);
+//$yellow: rgb(239, 229, 78);
+//$blue: rgb(79, 111, 123);
+//$purple: rgb(113, 57, 72);
+//$orange: rgb(205, 88, 41);
+//$red: rgb(189, 42, 24);
+//$dark_red: rgb(139, 41, 27);
+//$brown: rgb(111, 72, 54);
 
 .roesch-container {
   height: 100%;
   width: 100%;
 
   .grid {
-    background-color: rgb(150, 170, 102);
+    //background-color: $background_color;
     display: grid;
     height: 100%;
     width: 100%;
@@ -74,26 +76,29 @@ $dark_red: rgb(139, 41, 27);
 
   .dark-red-1 {grid-area: 22/12/23/20;}
 
-  .resize {grid-area: 20/10/24/12}
-  .links {grid-area: 18/10/20/12;}
+
+
+  .home-link {grid-area: 15/1/16/2;}
+  .links {grid-area: 15/4/16/10;}
+  .title {grid-area: 7/16/13/17;}
 
   .dark-red-1 {
-    background-color: $dark_red;
+    //background-color: $dark_red;
     z-index: 3;
   }
 
   .dark-green-1, .dark-green-2, .dark-green-3, .dark-green-4 {
-    background-color: $dark_green;
+    //background-color: $dark_green;
     z-index: 1;
   }
 
   .purple-1, .purple-2 {
-    background-color: $purple;
+    //background-color: $purple;
     z-index: 1;
   }
 
   .yellow-1, .yellow-2, .yellow-3, .yellow-4 {
-    background-color: $yellow;
+    //background-color: $yellow;
     z-index: 3;
   }
 
@@ -110,39 +115,40 @@ $dark_red: rgb(139, 41, 27);
   }
 
   .orange-1, .orange-2, .orange-3, .orange-4, .orange-5, .orange-6 {
-    background-color: $orange;
+    //background-color: $orange;
     z-index: 4;
   }
 
   .red-1, .red-2, .red-3, .red-4, .red-5{
-    background-color: $red;
+    //background-color: $red;
     z-index: 4;
   }
 
   .brown-1, .brown-2, .brown-3, .brown-4 {
-    background-color: $brown;
+    //background-color: $brown;
     z-index: 4;
   }
 
   .blue-1, .blue-2, .blue-3, .blue-4, .blue-5, .blue-6, .blue-7, .blue-8 {
-    background-color: $blue;
+    //background-color: $blue;
   }
 
-  .resize {
+  .resize, .title {
     text-transform: uppercase;
     color: black;
-    font-size: calc(1vh + 2vw);
+    font-size: calc(1vh + 1vw);
     padding-left: 1vw;
     white-space: nowrap;
   }
 
-  .home-link, .next-link {
+  .home-link, .next-link, .link {
     font-weight: 700;
     color: blue;
     text-decoration: underline;
     font-family: "IBM Plex Serif", Helvetica, Arial, sans-serif;
     padding: 0 1vw;
     -webkit-font-smoothing: antialiased;
+    cursor: pointer;
   }
 
 }
