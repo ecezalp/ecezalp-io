@@ -49,6 +49,10 @@ const WBBPACK_SRC_CONFIG = {
       }, {
         test: [/\.png$/, /\.jpg$/, /\.svg$/],
         loader: 'url-loader?=mimetype=image/png'
+      },
+      {
+        test: [/\.jpeg$/],
+        loader: 'url-loader?=mimetype=image/jpeg'
       }
     ]
   }, resolve: {

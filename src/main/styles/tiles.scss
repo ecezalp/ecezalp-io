@@ -1,0 +1,57 @@
+.tiles-container {
+  margin-top: 10vh;
+  height: 60%;
+  width: 45%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+
+  .tile {
+    cursor: pointer;
+    height: calc(5vh + 5vw);
+    width: calc(5vh + 5vw);
+    padding: 5px;
+
+    .placeholder {
+      height: 100%;
+      width: 100%;
+      border: 2px solid yellow;
+      background-color: black;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      border: 2px solid yellow;
+    }
+  }
+}
+
+.tiles-parent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../resources/tiles/space.jpg");
+  background-size: cover;
+}
+
+.game-links {
+  display: flex;
+  padding-top: 10vh;
+  padding-left: 10vw;
+
+  .home-link, .next-link, .link {
+    font-weight: 700;
+    color: white;
+    text-decoration: underline;
+    font-family: "IBM Plex Serif", Helvetica, Arial, sans-serif;
+    padding: 0 1vw;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    font-size: 3rem;
+  }
+}
+
